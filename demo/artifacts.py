@@ -1,13 +1,16 @@
-"""Deterministic screenshots, video and handoff pack.
+"""Deterministic screenshots, videos and handoff pack.
 
+The visual language follows perepolkin.sk: warm cream paper, editorial serif
+headlines, Inter body text, JetBrains Mono labels and a muted brick accent.
 Everything is rendered locally from the generated demo outputs. There are no
-network calls and no real customer data. The visual assets use the same fixed
-numbers as report.json, so the cards cannot drift from the reports.
+network calls and no real customer data. Numbers come from report.json, so the
+cards cannot drift from the reports.
 """
 
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -27,41 +30,66 @@ W, H = 1440, 900
 M = 72
 SCENARIOS = ("shoptet", "invoices", "mergado")
 
-BG = "#F2F5F8"
-CARD = "#FFFFFF"
-INK = "#0B1220"
-MUTED = "#5A6778"
-LINE = "#DCE3EA"
-TEAL = "#0F9D8A"
-TEAL_DARK = "#087568"
-TEAL_SOFT = "#DDF4EF"
-AMBER = "#B45309"
-AMBER_SOFT = "#FEF3C7"
-RED = "#B42318"
-RED_SOFT = "#FEE4E2"
-GREEN = "#067647"
-GREEN_SOFT = "#DCFAE6"
-TERM_BG = "#0B1220"
-TERM_BAR = "#161D2A"
-TERM_TEXT = "#DCE6F2"
-TERM_DIM = "#8A98AA"
-CODE_TAG = "#7DD3FC"
-CODE_ATTR = "#FBBF24"
-CODE_TEXT = "#E5EDF6"
+# Site tokens. LINE is the opaque equivalent of rgba(31, 27, 22, 0.1) on cream.
+BG = "#F7F4EE"
+CARD = "#FDFBF7"
+PAPER = "#FFFDF9"
+INK = "#1F1B16"
+MUTED = "#6F6759"
+ACCENT = "#A8382A"
+GREEN = "#2F6B4B"
+LINE = "#E2DDD3"
+LINE_STRONG = "#CFC6B8"
+WARM = "#EFE8DD"
+ACCENT_SOFT = "#F4E4DF"
+GREEN_SOFT = "#E5EEE7"
+INK_SOFT = "#EAE3D8"
 
-FONT_DIR = Path(r"C:\Windows\Fonts")
+TERM_BG = "#1F1B16"
+TERM_BAR = "#2A241D"
+TERM_TEXT = "#F4EEE5"
+TERM_DIM = "#B6AA9A"
+TERM_LINE = "#3A332A"
+TERM_RED = "#D77A6B"
+TERM_GREEN = "#8FB59B"
+CODE_TAG = "#D98A7A"
+CODE_ATTR = "#9DBFA6"
+CODE_TEXT = "#EDE4D7"
+
+FONT_DIR = REPO_ROOT / "assets" / "fonts"
+FONT_FILES = {
+    "sans": "Inter.ttf",
+    "serif": "Newsreader.ttf",
+    "mono": "JetBrainsMono.ttf",
+}
+FALLBACKS = {
+    "sans": "arial.ttf",
+    "serif": "georgia.ttf",
+    "mono": "consola.ttf",
+}
+WEIGHTS = {
+    "regular": "Regular",
+    "medium": "Medium",
+    "semibold": "SemiBold",
+    "bold": "Bold",
+}
 
 
-@lru_cache(maxsize=128)
-def font(size: int, bold: bool = False, mono: bool = False) -> ImageFont.FreeTypeFont:
-    if mono:
-        name = "consolab.ttf" if bold else "consola.ttf"
-    else:
-        name = "segoeuib.ttf" if bold else "segoeui.ttf"
-    path = FONT_DIR / name
+@lru_cache(maxsize=256)
+def font(size: int, weight: str = "regular", family: str = "sans") -> ImageFont.FreeTypeFont:
+    path = FONT_DIR / FONT_FILES[family]
     if not path.exists():
-        path = FONT_DIR / ("arialbd.ttf" if bold else "arial.ttf")
-    return ImageFont.truetype(str(path), size=size)
+        path = Path(r"C:\Windows\Fonts") / FALLBACKS[family]
+    face = ImageFont.truetype(str(path), size=size)
+    try:
+        face.set_variation_by_name(WEIGHTS.get(weight, weight))
+    except (OSError, ValueError):
+        if weight in {"medium", "semibold", "bold"}:
+            try:
+                face.set_variation_by_name("Bold")
+            except (OSError, ValueError):
+                pass
+    return face
 
 
 def tw(draw: ImageDraw.ImageDraw, value: str, fnt: ImageFont.FreeTypeFont) -> int:
@@ -98,47 +126,118 @@ def text(
     draw: ImageDraw.ImageDraw,
     xy: tuple[int, int],
     value: str,
-    size: int = 24,
+    size: int = 18,
     color: str = INK,
-    bold: bool = False,
-    mono: bool = False,
+    weight: str = "regular",
+    family: str = "sans",
     anchor: str | None = None,
 ) -> None:
-    draw.text(xy, str(value), font=font(size, bold, mono), fill=color, anchor=anchor)
+    draw.text(xy, str(value), font=font(size, weight, family), fill=color, anchor=anchor)
 
 
-def panel(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], fill: str = CARD, outline: str = LINE, radius: int = 18) -> None:
-    x1, y1, x2, y2 = box
-    draw.rounded_rectangle((x1 + 3, y1 + 5, x2 + 3, y2 + 5), radius=radius, fill="#E6EBF1")
+def panel(
+    draw: ImageDraw.ImageDraw,
+    box: tuple[int, int, int, int],
+    fill: str = CARD,
+    outline: str = LINE,
+    radius: int = 4,
+) -> None:
     draw.rounded_rectangle(box, radius=radius, fill=fill, outline=outline, width=1)
 
 
-def pill(draw: ImageDraw.ImageDraw, x: int, y: int, label: str, fill: str = TEAL_SOFT, fg: str = TEAL_DARK) -> int:
-    fnt = font(16, True)
-    width = tw(draw, label, fnt) + 28
-    draw.rounded_rectangle((x, y, x + width, y + 32), radius=16, fill=fill)
-    text(draw, (x + 14, y + 6), label, 16, fg, True)
+def rule(draw: ImageDraw.ImageDraw, x1: int, y1: int, x2: int, y2: int, color: str = LINE) -> None:
+    draw.line((x1, y1, x2, y2), fill=color, width=1)
+
+
+def badge(
+    draw: ImageDraw.ImageDraw,
+    x: int,
+    y: int,
+    label: str,
+    fill: str = ACCENT_SOFT,
+    fg: str = ACCENT,
+    outline: str | None = None,
+) -> int:
+    fnt = font(10, "medium", "mono")
+    width = tw(draw, label, fnt) + 18
+    draw.rounded_rectangle(
+        (x, y, x + width, y + 24),
+        radius=2,
+        fill=fill,
+        outline=outline or fill,
+        width=1,
+    )
+    text(draw, (x + 9, y + 6), label, 10, fg, "medium", "mono")
     return width
 
 
-def header(draw: ImageDraw.ImageDraw, kicker: str, title: str, subtitle: str, dark: bool = False) -> None:
-    draw.rectangle((0, 0, W, 9), fill=TEAL)
-    bg = TERM_BG if dark else BG
-    fg = "#FFFFFF" if dark else INK
-    sub = "#AAB6C5" if dark else MUTED
-    draw.rectangle((0, 9, W, H), fill=bg)
-    text(draw, (M, 40), kicker, 15, TEAL, True)
-    text(draw, (M, 70), title, 48, fg, True)
-    text(draw, (M, 136), subtitle, 22, sub)
-    draw.line((M, 178, W - M, 178), fill="#273244" if dark else LINE, width=1)
-    pill(draw, W - M - 176, 42, "SYNTETICKÉ DÁTA", TEAL_SOFT if not dark else "#123B37", TEAL_DARK if not dark else "#8DE4D7")
+def stamp(draw: ImageDraw.ImageDraw, x: int, y: int, label: str = "DEMO", color: str = ACCENT) -> None:
+    fnt = font(11, "bold", "mono")
+    width = tw(draw, label, fnt) + 22
+    draw.rectangle((x, y, x + width, y + 28), outline=color, width=1)
+    text(draw, (x + 11, y + 8), label, 11, color, "bold", "mono")
+
+
+def title_run(
+    draw: ImageDraw.ImageDraw,
+    x: int,
+    y: int,
+    value: str,
+    size: int,
+    color: str = INK,
+    max_width: int = W - 2 * M,
+) -> None:
+    """Draw a Newsreader title, using Inter only for the arrow glyph."""
+    if "→" not in value:
+        text(draw, (x, y), fit(draw, value, font(size, "medium", "serif"), max_width), size, color, "medium", "serif")
+        return
+    left, right = (part.strip() for part in value.split("→", 1))
+    while size > 24:
+        serif = font(size, "medium", "serif")
+        arrow = font(max(16, int(size * 0.72)), "medium", "sans")
+        gap = max(8, int(size * 0.2))
+        total = tw(draw, left, serif) + tw(draw, "→", arrow) + tw(draw, right, serif) + 2 * gap
+        if total <= max_width:
+            break
+        size -= 2
+    serif = font(size, "medium", "serif")
+    arrow = font(max(16, int(size * 0.72)), "medium", "sans")
+    gap = max(8, int(size * 0.2))
+    left_w = tw(draw, left, serif)
+    arrow_w = tw(draw, "→", arrow)
+    draw.text((x, y), left, font=serif, fill=color)
+    draw.text((x + left_w + gap, y + int(size * 0.05)), "→", font=arrow, fill=color)
+    draw.text((x + left_w + gap + arrow_w + gap, y), right, font=serif, fill=color)
+
+
+def header(draw: ImageDraw.ImageDraw, kicker: str, title: str, subtitle: str) -> None:
+    draw.rectangle((0, 0, W, 5), fill=ACCENT)
+    draw.rectangle((0, 5, W, H), fill=BG)
+    text(draw, (M, 30), "PEREPOLKIN.SK / DEMO PACK", 10, MUTED, "medium", "mono")
+    text(draw, (W - M, 30), kicker.upper(), 10, ACCENT, "medium", "mono", anchor="ra")
+
+    title_run(draw, M, 62, title, 50, INK, W - 2 * M - 230)
+    text(draw, (M, 126), fit(draw, subtitle, font(18), W - 2 * M - 230), 18, MUTED)
+
+    draw.rectangle((W - M - 166, 64, W - M, 94), outline=ACCENT, width=1)
+    text(draw, (W - M - 83, 79), "SYNTETICKÉ DÁTA", 10, ACCENT, "medium", "mono", anchor="mm")
+    rule(draw, M, 178, W - M, 178, LINE_STRONG)
 
 
 def footer(draw: ImageDraw.ImageDraw, dark: bool = False) -> None:
-    fg = "#8A98AA" if dark else "#8491A2"
-    draw.line((M, 842, W - M, 842), fill="#263244" if dark else LINE, width=1)
-    text(draw, (M, 858), "Syntetické dáta · všetky firmy a doklady sú vymyslené · bez reálneho IČO/DIČ", 15, fg)
-    text(draw, (W - M, 856), "DEMO", 25, "#A9B6C5" if dark else "#AAB5C1", True, anchor="ra")
+    fg = TERM_DIM if dark else MUTED
+    line = TERM_LINE if dark else LINE
+    rule(draw, M, 842, W - M, 842, line)
+    text(
+        draw,
+        (M, 858),
+        "Syntetické dáta · všetky firmy a doklady sú vymyslené · bez reálneho IČO/DIČ",
+        12,
+        fg,
+    )
+    color = TERM_RED if dark else ACCENT
+    draw.rectangle((W - M - 72, 850, W - M, 878), outline=color, width=1)
+    text(draw, (W - M - 36, 864), "DEMO", 12, color, "bold", "mono", anchor="mm")
 
 
 def stat_card(
@@ -147,15 +246,15 @@ def stat_card(
     value: str,
     label: str,
     note: str = "",
-    accent: str = TEAL,
+    accent: str = ACCENT,
 ) -> None:
     panel(draw, box)
-    x1, y1, x2, _ = box
-    draw.rounded_rectangle((x1, y1 + 26, x1 + 5, y1 + 92), radius=2, fill=accent)
-    text(draw, (x1 + 28, y1 + 20), value, 54, INK, True)
-    text(draw, (x1 + 28, y1 + 84), label, 19, MUTED)
+    x1, y1, _, _ = box
+    draw.rectangle((x1 + 20, y1 + 18, x1 + 58, y1 + 22), fill=accent)
+    text(draw, (x1 + 20, y1 + 36), value, 48, INK, "medium", "mono")
+    text(draw, (x1 + 20, y1 + 96), label, 15, INK, "medium", "sans")
     if note:
-        text(draw, (x1 + 28, y1 + 112), note, 15, "#7C899A")
+        text(draw, (x1 + 20, y1 + 118), note, 12, MUTED, "regular", "mono")
 
 
 def _money(value: str | Decimal) -> str:
@@ -183,75 +282,78 @@ def _ctx(root: Path) -> dict:
     }
 
 
-def _file_icon(draw: ImageDraw.ImageDraw, x: int, y: int, label: str, color: str = TEAL) -> None:
-    draw.rounded_rectangle((x, y, x + 34, y + 42), radius=5, fill=color)
-    draw.polygon([(x + 21, y), (x + 34, y + 13), (x + 21, y + 13)], fill="#FFFFFF")
-    text(draw, (x + 17, y + 29), label, 11, "#FFFFFF", True, anchor="mm")
+def _file_icon(draw: ImageDraw.ImageDraw, x: int, y: int, label: str, color: str = ACCENT) -> None:
+    draw.rounded_rectangle((x, y, x + 32, y + 40), radius=2, fill=WARM, outline=LINE_STRONG, width=1)
+    draw.line((x + 21, y, x + 21, y + 10), fill=LINE_STRONG, width=1)
+    text(draw, (x + 16, y + 27), label, 9, color, "medium", "mono", anchor="mm")
 
 
-def _badge(draw: ImageDraw.ImageDraw, x: int, y: int, label: str, fill: str, fg: str) -> None:
-    fnt = font(13, True)
-    width = tw(draw, label, fnt) + 18
-    draw.rounded_rectangle((x, y, x + width, y + 24), radius=12, fill=fill)
-    text(draw, (x + 9, y + 4), label, 13, fg, True)
+def _file_row(draw: ImageDraw.ImageDraw, x: int, y: int, kind: str, name: str, note: str, color: str = ACCENT) -> None:
+    _file_icon(draw, x, y, kind, color)
+    text(draw, (x + 44, y + 1), fit(draw, name, font(14, "medium", "mono"), 230), 14, INK, "medium", "mono")
+    text(draw, (x + 44, y + 23), fit(draw, note, font(13), 270), 13, MUTED)
 
 
 def input_shoptet(ctx: dict) -> Image.Image:
     report = ctx["reports"]["shoptet"]
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
-    header(draw, "SCENÁR 01 / VSTUP", "Shoptet → Pohoda", "50 syntetických objednávok · 12 produktov · 1 sklad · CZK · DPH 23 %")
-    card_w = (W - 2 * M - 2 * 22) // 3
+    header(
+        draw,
+        "SCENÁR 01 / VSTUP",
+        "Shoptet → Pohoda",
+        "50 syntetických objednávok · 12 produktov · 1 sklad · CZK · DPH 23 %",
+    )
+    card_w = (W - 2 * M - 2 * 18) // 3
     for index, (value, label, note, accent) in enumerate(
         [
-            (fmt_int(report["input_count"]), "objednávok", "DEMO-2026-0001 … 0050", TEAL),
-            ("12", "produktov v katalógu", "SKU + EAN + cena + DPH", TEAL),
-            ("1", "sklad", "SKLAD-DEMO · výdajky", AMBER),
+            (fmt_int(report["input_count"]), "objednávok", "DEMO-2026-0001 … 0050", ACCENT),
+            ("12", "produktov v katalógu", "SKU + EAN + cena + DPH", INK),
+            ("1", "sklad", "SKLAD-DEMO · výdajky", GREEN),
         ]
     ):
-        stat_card(draw, (M + index * (card_w + 22), 206, M + index * (card_w + 22) + card_w, 348), value, label, note, accent)
+        stat_card(draw, (M + index * (card_w + 18), 206, M + index * (card_w + 18) + card_w, 350), value, label, note, accent)
 
-    panel(draw, (M, 378, 632, 800))
-    text(draw, (M + 26, 402), "Vstupné súbory", 24, INK, True)
-    text(draw, (M + 26, 436), "Lokálne, bez API a bez siete", 15, MUTED)
+    panel(draw, (M, 378, 604, 800))
+    text(draw, (M + 24, 400), "Vstupné súbory", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 432), "Lokálne, bez API a bez siete", 12, MUTED, "regular", "mono")
     files = [
-        ("JSON", "orders.json", "50 objednávok", TEAL),
-        ("CSV", "orders.csv", "ten istý export pre CSV import", "#2563EB"),
-        ("JSON", "catalog.json", "12 SKU, EAN, cena, DPH", TEAL),
-        ("JSON", "stock.json", "1 sklad, 12 položiek", TEAL),
-        ("TXT", "README.txt", "syntetické dáta, žiadny klient", "#7C3AED"),
+        ("JSON", "orders.json", "50 objednávok", ACCENT),
+        ("CSV", "orders.csv", "ten istý export pre CSV import", MUTED),
+        ("JSON", "catalog.json", "12 SKU, EAN, cena, DPH", ACCENT),
+        ("JSON", "stock.json", "1 sklad, 12 položiek", GREEN),
+        ("TXT", "README.txt", "syntetické dáta, žiadny klient", MUTED),
     ]
     for index, (kind, name, note, color) in enumerate(files):
-        y = 478 + index * 60
-        _file_icon(draw, M + 26, y, kind, color)
-        text(draw, (M + 76, y + 1), name, 19, INK, True)
-        text(draw, (M + 76, y + 26), note, 14, MUTED)
+        y = 474 + index * 58
+        _file_row(draw, M + 24, y, kind, name, note, color)
+        rule(draw, M + 24, y + 52, 580, y + 52, LINE)
 
-    panel(draw, (656, 378, 1368, 800))
-    text(draw, (682, 402), "Ukážka objednávky", 24, INK, True)
+    panel(draw, (628, 378, 1368, 800))
+    text(draw, (652, 400), "Ukážka objednávky", 24, INK, "medium", "serif")
     order = ctx["orders"][0]
-    text(draw, (682, 436), f"{order['order_id']} · {order['customer']['name']} · CZK", 15, MUTED)
-    columns = [(682, "SKU"), (800, "Položka"), (1120, "Množ."), (1190, "Cena"), (1300, "DPH")]
-    draw.rounded_rectangle((682, 472, 1342, 510), radius=8, fill="#EDF2F6")
+    text(draw, (652, 432), f"{order['order_id']} · {order['customer']['name']} · CZK", 12, MUTED, "regular", "mono")
+    columns = [(652, "SKU"), (748, "POLOŽKA"), (1068, "MNOŽ."), (1150, "CENA"), (1264, "DPH")]
+    draw.rectangle((652, 464, 1344, 496), fill=WARM)
     for x, label in columns:
-        text(draw, (x, 482), label, 14, MUTED, True)
+        text(draw, (x, 474), label, 10, MUTED, "medium", "mono")
     rows = [(item["sku"], item["name"], str(item["qty"]), _money(item["unit_price"]), "23 %") for item in order["items"]]
     rows.append(("—", "Doprava", "1", _money(order["shipping"]), "23 %"))
     for index, (sku, name, qty, price, vat) in enumerate(rows):
-        y = 526 + index * 56
+        y = 506 + index * 48
         if index % 2 == 0:
-            draw.rectangle((682, y - 8, 1342, y + 40), fill="#F8FAFC")
-        text(draw, (682, y), sku, 15, TEAL_DARK, True, True)
-        text(draw, (800, y), fit(draw, name, font(16), 300), 16, INK)
-        text(draw, (1120, y), qty, 16, INK)
-        text(draw, (1190, y), price, 16, INK)
-        text(draw, (1300, y), vat, 16, INK)
+            draw.rectangle((652, y - 8, 1344, y + 34), fill="#FAF6EF")
+        text(draw, (652, y), sku, 13, ACCENT, "medium", "mono")
+        text(draw, (748, y), fit(draw, name, font(15), 280), 15, INK)
+        text(draw, (1068, y), qty, 14, INK, "medium", "mono")
+        text(draw, (1150, y), price, 14, INK, "medium", "mono")
+        text(draw, (1264, y), vat, 14, MUTED, "medium", "mono")
     net = sum((Decimal(item["unit_price"]) * item["qty"] for item in order["items"]), Decimal("0")) + Decimal(order["shipping"])
     gross = money(net * Decimal("1.23"))
-    draw.line((682, 736, 1342, 736), fill=LINE)
-    text(draw, (682, 752), "Spolu s DPH", 16, MUTED)
-    text(draw, (1342, 746), f"{_money(gross)} CZK", 24, INK, True, anchor="ra")
-    text(draw, (682, 774), "Všetky mená, adresy a e-maily sú vymyslené.", 13, MUTED)
+    rule(draw, 652, 706, 1344, 706, LINE_STRONG)
+    text(draw, (652, 722), "Spolu s DPH", 14, MUTED)
+    text(draw, (1344, 714), f"{_money(gross)} CZK", 22, INK, "medium", "mono", anchor="ra")
+    text(draw, (652, 766), "Všetky mená, adresy a e-maily sú vymyslené.", 11, MUTED, "regular", "mono")
     footer(draw)
     return image
 
@@ -260,54 +362,60 @@ def input_invoices(ctx: dict) -> Image.Image:
     report = ctx["reports"]["invoices"]
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
-    header(draw, "SCENÁR 02 / VSTUP", "Dodávateľské faktúry → Pohoda", "10 syntetických PDF · 48 riadkov · 1 katalóg · 8 čitateľných + 2 na kontrolu")
-    card_w = (W - 2 * M - 2 * 22) // 3
+    header(
+        draw,
+        "SCENÁR 02 / VSTUP",
+        "Dodávateľské faktúry → Pohoda",
+        "10 syntetických PDF · 48 riadkov · 1 katalóg · 8 čitateľných + 2 na kontrolu",
+    )
+    card_w = (W - 2 * M - 2 * 18) // 3
     for index, (value, label, note, accent) in enumerate(
         [
-            ("10", "PDF faktúr", "8 čitateľných + 1 sken + 1 duplikát", TEAL),
-            ("48", "riadkov", "6 riadkov na faktúru", TEAL),
-            ("2", "na ručnú kontrolu", "sken bez OCR · duplicita", AMBER),
+            ("10", "PDF faktúr", "8 čitateľných + 1 sken + 1 duplikát", INK),
+            ("48", "riadkov", "6 riadkov na faktúru", GREEN),
+            ("2", "na ručnú kontrolu", "sken bez OCR · duplicita", ACCENT),
         ]
     ):
-        stat_card(draw, (M + index * (card_w + 22), 206, M + index * (card_w + 22) + card_w, 348), value, label, note, accent)
+        stat_card(draw, (M + index * (card_w + 18), 206, M + index * (card_w + 18) + card_w, 350), value, label, note, accent)
 
     panel(draw, (M, 378, 770, 800))
-    text(draw, (M + 26, 402), "Vstupné PDF", 24, INK, True)
-    text(draw, (M + 26, 436), "manifest.json · 10 dokumentov", 15, MUTED)
+    text(draw, (M + 24, 400), "Vstupné PDF", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 432), "manifest.json · 10 dokumentov", 12, MUTED, "regular", "mono")
     for index, item in enumerate(ctx["manifest"]):
         column = index // 5
         row = index % 5
-        x = M + 26 + column * 344
-        y = 474 + row * 62
-        _file_icon(draw, x, y, "PDF", "#DC2626")
-        text(draw, (x + 46, y - 1), fit(draw, item["file"], font(15, True), 180), 15, INK, True)
-        text(draw, (x + 46, y + 24), f"{item['invoice_number']} · {_money(item['total'])}", 13, MUTED)
+        x = M + 24 + column * 340
+        y = 468 + row * 58
+        _file_icon(draw, x, y, "PDF", ACCENT if item["kind"] != "scan" else MUTED)
+        text(draw, (x + 42, y - 1), fit(draw, item["file"], font(12, "medium", "mono"), 150), 12, INK, "medium", "mono")
+        text(draw, (x + 42, y + 21), f"{item['invoice_number']} · {_money(item['total'])}", 11, MUTED, "regular", "mono")
         if item["kind"] == "scan":
-            _badge(draw, x + 244, y + 4, "sken", AMBER_SOFT, AMBER)
+            badge(draw, x + 222, y + 8, "SKEN", ACCENT_SOFT, ACCENT)
         elif item["kind"] == "duplicate":
-            _badge(draw, x + 226, y + 4, "duplikát", RED_SOFT, RED)
+            badge(draw, x + 200, y + 8, "DUPLIKÁT", ACCENT_SOFT, ACCENT)
         else:
-            _badge(draw, x + 244, y + 4, "OK", GREEN_SOFT, GREEN)
+            badge(draw, x + 230, y + 8, "OK", GREEN_SOFT, GREEN)
 
     panel(draw, (794, 378, 1368, 800))
-    text(draw, (820, 402), "Ukážka dokumentu", 24, INK, True)
-    text(draw, (820, 436), "PDF → text → riadky → Pohoda XML", 15, MUTED)
-    draw.rounded_rectangle((842, 468, 1320, 772), radius=4, fill="#FFFFFF", outline="#E2E8F0")
-    text(draw, (866, 490), "FAKTÚRA / DEMO", 14, TEAL_DARK, True)
-    text(draw, (866, 516), ctx["parsed"]["supplier"], 18, INK, True)
-    text(draw, (866, 542), f"{ctx['parsed']['invoice_number']} · {ctx['parsed']['issue_date']}", 13, MUTED)
-    text(draw, (1296, 490), "CZK", 13, MUTED, anchor="ra")
-    draw.line((866, 566, 1296, 566), fill=LINE)
+    text(draw, (818, 400), "Ukážka dokumentu", 24, INK, "medium", "serif")
+    text(draw, (818, 432), "PDF → text → riadky → Pohoda XML", 12, MUTED, "regular", "mono")
+    draw.rectangle((842, 464, 1320, 772), fill=PAPER, outline=LINE_STRONG)
+    draw.rectangle((842, 464, 1320, 468), fill=ACCENT)
+    text(draw, (864, 488), "FAKTÚRA / DEMO", 11, ACCENT, "medium", "mono")
+    text(draw, (864, 510), ctx["parsed"]["supplier"], 19, INK, "medium", "serif")
+    text(draw, (864, 538), f"{ctx['parsed']['invoice_number']} · {ctx['parsed']['issue_date']}", 11, MUTED, "regular", "mono")
+    text(draw, (1296, 488), "CZK", 11, MUTED, "medium", "mono", anchor="ra")
+    rule(draw, 864, 560, 1296, 560, LINE_STRONG)
     for index, line in enumerate(ctx["parsed"]["lines"][:3]):
-        y = 582 + index * 38
-        text(draw, (866, y), fit(draw, line["description"], font(14), 250), 14, INK)
-        text(draw, (1160, y), f"{line['qty']} × {_money(line['unit_price'])}", 13, MUTED)
-        text(draw, (1296, y), _money(line["gross"]), 13, INK, anchor="ra")
-    draw.line((866, 700, 1296, 700), fill=LINE)
-    text(draw, (866, 714), "Spolu", 15, MUTED, True)
-    text(draw, (1296, 710), f"{_money(ctx['parsed']['declared_total'])} CZK", 20, INK, True, anchor="ra")
-    text(draw, (866, 742), "Syntetická faktúra · Demo Dodávateľ Alfa s.r.o.", 12, MUTED)
-    _badge(draw, 1192, 738, "DEMO", TEAL_SOFT, TEAL_DARK)
+        y = 578 + index * 36
+        text(draw, (864, y), fit(draw, line["description"], font(14), 240), 14, INK)
+        text(draw, (1146, y), f"{line['qty']} × {_money(line['unit_price'])}", 11, MUTED, "regular", "mono")
+        text(draw, (1296, y), _money(line["gross"]), 12, INK, "medium", "mono", anchor="ra")
+    rule(draw, 864, 696, 1296, 696, LINE_STRONG)
+    text(draw, (864, 712), "Spolu", 13, MUTED, "medium", "sans")
+    text(draw, (1296, 704), f"{_money(ctx['parsed']['declared_total'])} CZK", 19, INK, "medium", "mono", anchor="ra")
+    text(draw, (864, 744), "Syntetická faktúra · Demo Dodávateľ Alfa s.r.o.", 11, MUTED, "regular", "mono")
+    stamp(draw, 1182, 730)
     footer(draw)
     return image
 
@@ -316,61 +424,70 @@ def input_mergado(ctx: dict) -> Image.Image:
     report = ctx["reports"]["mergado"]
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
-    header(draw, "SCENÁR 03 / VSTUP", "Mergado / XML feed", "3 dodávatelia · 1 000 produktov · 2 XML + 1 CSV · CZK")
-    card_w = (W - 2 * M - 2 * 22) // 3
+    header(
+        draw,
+        "SCENÁR 03 / VSTUP",
+        "Mergado / XML feed",
+        "3 dodávatelia · 1 000 produktov · 2 XML + 1 CSV · CZK",
+    )
+    card_w = (W - 2 * M - 2 * 18) // 3
     for index, (value, label, note, accent) in enumerate(
         [
-            ("3", "feedy", "2 × XML + 1 × CSV", TEAL),
-            (fmt_int(report["input_count"]), "produktov", "400 + 350 + 250", TEAL),
-            ("13", "na kontrolu", "kategória, EAN, mena, cena", AMBER),
+            ("3", "feedy", "2 × XML + 1 × CSV", INK),
+            (fmt_int(report["input_count"]), "produktov", "400 + 350 + 250", GREEN),
+            ("13", "na kontrolu", "kategória, EAN, mena, cena", ACCENT),
         ]
     ):
-        stat_card(draw, (M + index * (card_w + 22), 206, M + index * (card_w + 22) + card_w, 348), value, label, note, accent)
+        stat_card(draw, (M + index * (card_w + 18), 206, M + index * (card_w + 18) + card_w, 350), value, label, note, accent)
 
     panel(draw, (M, 378, 656, 800))
-    text(draw, (M + 26, 402), "Zdroje", 24, INK, True)
-    text(draw, (M + 26, 436), "Každý feed má iný formát", 15, MUTED)
-    suppliers = [("A", "supplier_a.xml", 400, "XML"), ("B", "supplier_b.xml", 350, "XML"), ("C", "supplier_c.csv", 250, "CSV")]
-    for index, (code, name, count, kind) in enumerate(suppliers):
+    text(draw, (M + 24, 400), "Zdroje", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 432), "Každý feed má iný formát", 12, MUTED, "regular", "mono")
+    suppliers = [
+        ("A", "supplier_a.xml", 400, "XML", ACCENT),
+        ("B", "supplier_b.xml", 350, "XML", "#C17A6C"),
+        ("C", "supplier_c.csv", 250, "CSV", MUTED),
+    ]
+    for index, (code, name, count, kind, color) in enumerate(suppliers):
         y = 478 + index * 92
-        draw.rounded_rectangle((M + 26, y, M + 58, y + 58), radius=10, fill=TEAL if index < 2 else "#2563EB")
-        text(draw, (M + 42, y + 29), code, 24, "#FFFFFF", True, anchor="mm")
-        text(draw, (M + 74, y + 2), name, 18, INK, True)
-        text(draw, (M + 74, y + 30), f"{count} produktov · {kind}", 14, MUTED)
-        bar_w = 150
-        draw.rounded_rectangle((M + 360, y + 22, M + 360 + bar_w, y + 34), radius=6, fill="#E8EEF4")
-        draw.rounded_rectangle((M + 360, y + 22, M + 360 + int(bar_w * count / 400), y + 34), radius=6, fill=TEAL if index < 2 else "#2563EB")
-        text(draw, (M + 552, y + 18), str(count), 18, INK, True, anchor="ra")
+        draw.rectangle((M + 24, y, M + 68, y + 44), outline=color, width=1)
+        text(draw, (M + 46, y + 22), code, 18, color, "medium", "mono", anchor="mm")
+        text(draw, (M + 84, y + 2), name, 14, INK, "medium", "mono")
+        text(draw, (M + 84, y + 27), f"{count} produktov · {kind}", 12, MUTED, "regular", "mono")
+        bar_w = 170
+        draw.rectangle((M + 336, y + 18, M + 336 + bar_w, y + 26), fill=INK_SOFT)
+        draw.rectangle((M + 336, y + 18, M + 336 + int(bar_w * count / 400), y + 26), fill=color)
+        text(draw, (M + 552, y + 14), str(count), 16, INK, "medium", "mono", anchor="ra")
 
     panel(draw, (680, 378, 1368, 800))
-    text(draw, (706, 402), "Edge cases, ktoré demo rieši", 24, INK, True)
-    text(draw, (706, 436), "Nič sa nemení ticho. Všetko je v reporte.", 15, MUTED)
+    text(draw, (704, 400), "Edge cases, ktoré demo rieši", 24, INK, "medium", "serif")
+    text(draw, (704, 432), "Nič sa nemení ticho. Všetko je v reporte.", 12, MUTED, "regular", "mono")
     cases = [
-        ("10", "bez kategórie", "1 odvodená z názvu, 9 na kontrolu", AMBER),
-        ("1", "duplicitný EAN", "druhý výskyt na kontrolu", RED),
-        ("5", "nulový sklad", "zostáva v master feede s warningom", TEAL),
-        ("2", "iná mena", "EUR / USD sa nekonvertuje", AMBER),
-        ("1", "neplatná cena", "N/A nejde do master feedu", RED),
+        ("10", "bez kategórie", "1 odvodená z názvu, 9 na kontrolu", ACCENT),
+        ("1", "duplicitný EAN", "druhý výskyt na kontrolu", ACCENT),
+        ("5", "nulový sklad", "zostáva v master feede s warningom", GREEN),
+        ("2", "iná mena", "EUR / USD sa nekonvertuje", ACCENT),
+        ("1", "neplatná cena", "N/A nejde do master feedu", ACCENT),
     ]
     for index, (value, label, note, color) in enumerate(cases):
-        y = 480 + index * 60
-        draw.rounded_rectangle((706, y, 750, y + 44), radius=9, fill="#F1F5F9")
-        text(draw, (728, y + 22), value, 18, color, True, anchor="mm")
-        text(draw, (766, y), label, 18, INK, True)
-        text(draw, (766, y + 25), note, 14, MUTED)
+        y = 478 + index * 60
+        draw.rectangle((704, y, 744, y + 40), fill=WARM, outline=LINE)
+        text(draw, (724, y + 20), value, 16, color, "medium", "mono", anchor="mm")
+        text(draw, (762, y), label, 15, INK, "medium", "sans")
+        text(draw, (762, y + 24), note, 12, MUTED, "regular", "mono")
     footer(draw)
     return image
 
 
 def _terminal_line_color(line: str) -> str:
     if "WARN" in line:
-        return "#FBBF24"
+        return TERM_RED
     if line.startswith("$"):
-        return "#8DE4D7"
+        return TERM_TEXT
     if "Report:" in line:
-        return "#86EFAC"
+        return TERM_GREEN
     if re.match(r"^\[\d+\]", line):
-        return "#8DE4D7"
+        return TERM_TEXT
     return TERM_TEXT
 
 
@@ -382,35 +499,42 @@ def run_image(ctx: dict, scenario: str, reveal: int | None = None) -> Image.Imag
         lines = lines[:reveal]
     image = Image.new("RGB", (W, H), TERM_BG)
     draw = ImageDraw.Draw(image)
-    draw.rectangle((0, 0, W, 9), fill=TEAL)
-    draw.rectangle((0, 9, W, 72), fill=TERM_BAR)
-    for index, color in enumerate(("#F87171", "#FBBF24", "#34D399")):
-        draw.ellipse((28 + index * 24, 32, 44 + index * 24, 48), fill=color)
-    text(draw, (118, 28), f"demo — python -m demo run --scenario {scenario}", 18, "#C9D5E3", mono=True)
-    pill(draw, W - M - 86, 24, "DEMO", "#123B37", "#8DE4D7")
-    text(draw, (M, 98), "RUN / lokálny CLI beh", 15, TEAL, True)
-    text(draw, (M, 124), "Bez siete. Bez Dockeru. Bez databázy.", 16, TERM_DIM)
-    y = 166
-    body_font = font(19, mono=True) if len(lines) < 18 else font(16, mono=True)
-    step = 30 if len(lines) < 18 else 27
+    draw.rectangle((0, 0, W, 5), fill=ACCENT)
+    draw.rectangle((0, 5, W, 66), fill=TERM_BAR)
+    for index, color in enumerate((TERM_RED, TERM_GREEN, TERM_TEXT)):
+        draw.ellipse((26 + index * 22, 30, 40 + index * 22, 44), fill=color)
+    text(draw, (108, 26), f"demo — python -m demo run --scenario {scenario}", 14, TERM_DIM, "regular", "mono")
+    draw.rectangle((W - M - 72, 24, W - M, 52), outline=TERM_RED, width=1)
+    text(draw, (W - M - 36, 38), "DEMO", 10, TERM_RED, "bold", "mono", anchor="mm")
+
+    text(draw, (M, 88), "RUN / LOKÁLNY CLI BEH", 10, TERM_RED, "medium", "mono")
+    text(draw, (M, 112), "Reálny log. Bez siete. Bez databázy.", 28, TERM_TEXT, "medium", "serif")
+    text(draw, (M, 152), "Každý riadok je z výstupu scenára, žiadna skrytá chyba.", 12, TERM_DIM, "regular", "mono")
+
+    y = 188
+    body_size = 18 if len(lines) <= 16 else 16
+    step = 28 if len(lines) <= 16 else 23
     for line in lines:
         if not line.strip():
             y += step // 2
             continue
         color = _terminal_line_color(line)
-        text(draw, (M, y), fit(draw, line, body_font, W - 2 * M - 20), 19 if len(lines) < 18 else 16, color, mono=True)
+        if "WARN" in line:
+            draw.rectangle((M - 14, y + 2, M - 10, y + body_size + 1), fill=ACCENT)
+        text(draw, (M, y), fit(draw, line, font(body_size, "regular", "mono"), W - 2 * M - 20), body_size, color, "regular", "mono")
         y += step
-    panel(draw, (M, 748, W - M, 826), fill="#111A29", outline="#243247", radius=12)
+
+    panel(draw, (M, 744, W - M, 826), fill=TERM_BAR, outline=TERM_LINE)
     metrics = [
-        (str(report["processed"]), "spracované", "#86EFAC"),
-        (str(report["flagged"]), "na kontrolu", "#FBBF24"),
-        (str(report["silent_errors"]), "ticho prejdené", "#8DE4D7"),
+        (str(report["processed"]), "SPRACOVANÉ", TERM_GREEN),
+        (str(report["flagged"]), "NA KONTROLU", TERM_RED),
+        (str(report["silent_errors"]), "TICHO PREJDENÉ", TERM_TEXT),
     ]
     for index, (value, label, color) in enumerate(metrics):
-        x = M + 34 + index * 420
-        text(draw, (x, 762), value, 34, color, True)
-        text(draw, (x + 76, 774), label, 16, "#AAB6C5")
-    text(draw, (W - M - 24, 774), "syntetické dáta", 14, "#6F7E91", anchor="ra")
+        x = M + 28 + index * 400
+        text(draw, (x, 758), value, 26, color, "medium", "mono")
+        text(draw, (x + 64, 770), label, 11, TERM_DIM, "medium", "mono")
+    text(draw, (W - M - 24, 770), "syntetické dáta", 11, TERM_DIM, "regular", "mono", anchor="ra")
     footer(draw, dark=True)
     return image
 
@@ -419,17 +543,30 @@ def _code_lines(xml_text: str, limit: int = 24) -> list[str]:
     return xml_text.splitlines()[:limit]
 
 
+def _code_panel(draw: ImageDraw.ImageDraw, title: str, lines: list[str], line_size: int = 13, step: int = 21) -> None:
+    panel(draw, (604, 206, 1368, 800), fill=TERM_BG, outline=TERM_LINE)
+    text(draw, (628, 228), title, 13, TERM_RED, "medium", "mono")
+    text(draw, (W - 88, 228), "ukážka", 10, TERM_DIM, "regular", "mono", anchor="ra")
+    y = 262
+    for index, line in enumerate(lines, start=1):
+        text(draw, (628, y), f"{index:02d}", 10, "#7D7264", "regular", "mono")
+        stripped = line.strip()
+        color = CODE_TAG if stripped.startswith("<") else CODE_TEXT
+        text(draw, (660, y), fit(draw, line, font(line_size, "regular", "mono"), 650), line_size, color, "regular", "mono")
+        y += step
+
+
 def output_shoptet(ctx: dict) -> Image.Image:
     report = ctx["reports"]["shoptet"]
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
     header(draw, "SCENÁR 01 / VÝSTUP", "46 faktúr je hotových", "Pohoda XML subset · 46 výdajok skladu · všetky súčty sedia")
-    panel(draw, (M, 206, 610, 800))
-    text(draw, (M + 26, 230), "Pohoda XML", 24, INK, True)
-    text(draw, (M + 26, 264), "Vyexportované doklady", 15, MUTED)
-    text(draw, (M + 26, 302), fmt_int(report["processed"]), 86, TEAL_DARK, True)
-    text(draw, (M + 26, 390), "XML faktúr", 20, INK, True)
-    text(draw, (M + 26, 420), f"{report['stock_movements']} výdajok skladu · 1 rounding line", 14, MUTED)
+    panel(draw, (M, 206, 580, 800))
+    text(draw, (M + 24, 230), "Pohoda XML", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 262), "Vyexportované doklady", 12, MUTED, "regular", "mono")
+    text(draw, (M + 24, 296), fmt_int(report["processed"]), 64, ACCENT, "medium", "mono")
+    text(draw, (M + 24, 378), "XML faktúr", 18, INK, "medium", "sans")
+    text(draw, (M + 24, 406), f"{report['stock_movements']} výdajok skladu · 1 rounding line", 12, MUTED, "regular", "mono")
     items = [
         ("pohoda_invoices.xml", f"{report['processed']} dokladov v jednom balíku"),
         ("invoices/", "jeden XML súbor na faktúru"),
@@ -437,25 +574,13 @@ def output_shoptet(ctx: dict) -> Image.Image:
         ("report.json + report.md", "strojový aj ľudský report"),
     ]
     for index, (name, note) in enumerate(items):
-        y = 470 + index * 66
-        _file_icon(draw, M + 26, y, "XML" if name.endswith(".xml") else "DIR" if name.endswith("/") else "DOC", TEAL if index != 2 else AMBER)
-        text(draw, (M + 76, y), name, 17, INK, True)
-        text(draw, (M + 76, y + 26), note, 13, MUTED)
-    for index, label in enumerate(("XML well-formed", "Súčty sedia", "Decimal")): 
-        _badge(draw, M + 26 + index * 142, 752, label, TEAL_SOFT, TEAL_DARK)
+        y = 452 + index * 64
+        _file_row(draw, M + 24, y, "XML" if name.endswith(".xml") else "DIR" if name.endswith("/") else "DOC", name, note, ACCENT if index != 2 else GREEN)
+    for index, label in enumerate(("XML well-formed", "Súčty sedia", "Decimal")):
+        badge(draw, M + 24 + index * 140, 742, label, GREEN_SOFT, GREEN)
 
-    panel(draw, (634, 206, 1368, 800), fill="#0E1726", outline="#223047")
-    text(draw, (658, 230), "invoices/2026-0001.xml", 17, "#8DE4D7", True, mono=True)
-    text(draw, (W - 88, 230), "ukážka", 13, "#6F7E91", anchor="ra")
     xml_path = ctx["root"] / "output" / "shoptet" / "invoices" / "2026-0001.xml"
-    lines = _code_lines(xml_path.read_text(encoding="utf-8"), 23)
-    y = 270
-    for index, line in enumerate(lines, start=1):
-        text(draw, (658, y), f"{index:02d}", 12, "#52627A", mono=True)
-        stripped = line.strip()
-        color = CODE_TAG if stripped.startswith("<") else CODE_TEXT
-        text(draw, (692, y), fit(draw, line, font(14, mono=True), 630), 14, color, mono=True)
-        y += 21
+    _code_panel(draw, "invoices/2026-0001.xml", _code_lines(xml_path.read_text(encoding="utf-8"), 23))
     footer(draw)
     return image
 
@@ -465,12 +590,12 @@ def output_invoices(ctx: dict) -> Image.Image:
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
     header(draw, "SCENÁR 02 / VÝSTUP", "8 faktúr, 48/48 riadkov", "Prijaté faktúry do Pohody · skladové príjemky · parsed.json")
-    panel(draw, (M, 206, 610, 800))
-    text(draw, (M + 26, 230), "Pohoda XML", 24, INK, True)
-    text(draw, (M + 26, 264), "Prijaté faktúry a príjemky", 15, MUTED)
-    text(draw, (M + 26, 302), "8", 86, TEAL_DARK, True)
-    text(draw, (M + 26, 390), "prijatých faktúr", 20, INK, True)
-    text(draw, (M + 26, 420), f"{report['lines_posted']}/{report['lines_total']} riadkov · 0 unmatched", 14, MUTED)
+    panel(draw, (M, 206, 580, 800))
+    text(draw, (M + 24, 230), "Pohoda XML", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 262), "Prijaté faktúry a príjemky", 12, MUTED, "regular", "mono")
+    text(draw, (M + 24, 296), "8", 64, ACCENT, "medium", "mono")
+    text(draw, (M + 24, 378), "prijatých faktúr", 18, INK, "medium", "sans")
+    text(draw, (M + 24, 406), f"{report['lines_posted']}/{report['lines_total']} riadkov · 0 unmatched", 12, MUTED, "regular", "mono")
     items = [
         ("pohoda_received_invoices.xml", "8 dokladov v jednom balíku"),
         ("stock_receipts.xml", "8 skladových príjemiek"),
@@ -478,25 +603,13 @@ def output_invoices(ctx: dict) -> Image.Image:
         ("report.json + report.md", "matched / unmatched / flagged"),
     ]
     for index, (name, note) in enumerate(items):
-        y = 470 + index * 66
-        _file_icon(draw, M + 26, y, "XML" if name.endswith(".xml") else "DIR" if name.endswith("/") else "DOC", TEAL if index != 1 else AMBER)
-        text(draw, (M + 76, y), name, 17, INK, True)
-        text(draw, (M + 76, y + 26), note, 13, MUTED)
+        y = 452 + index * 64
+        _file_row(draw, M + 24, y, "XML" if name.endswith(".xml") else "DIR" if name.endswith("/") else "DOC", name, note, ACCENT if index != 1 else GREEN)
     for index, label in enumerate(("48/48 riadkov", "SKU + EAN", "0/23 % DPH")):
-        _badge(draw, M + 26 + index * 142, 752, label, TEAL_SOFT, TEAL_DARK)
+        badge(draw, M + 24 + index * 140, 742, label, GREEN_SOFT, GREEN)
 
-    panel(draw, (634, 206, 1368, 800), fill="#0E1726", outline="#223047")
-    text(draw, (658, 230), "pohoda_received_invoices.xml", 17, "#8DE4D7", True, mono=True)
-    text(draw, (W - 88, 230), "ukážka", 13, "#6F7E91", anchor="ra")
     xml_path = ctx["root"] / "output" / "invoices" / "invoices" / "DF-2026-1001.xml"
-    lines = _code_lines(xml_path.read_text(encoding="utf-8"), 23)
-    y = 270
-    for index, line in enumerate(lines, start=1):
-        text(draw, (658, y), f"{index:02d}", 12, "#52627A", mono=True)
-        stripped = line.strip()
-        color = CODE_TAG if stripped.startswith("<") else CODE_TEXT
-        text(draw, (692, y), fit(draw, line, font(14, mono=True), 630), 14, color, mono=True)
-        y += 21
+    _code_panel(draw, "pohoda_received_invoices.xml", _code_lines(xml_path.read_text(encoding="utf-8"), 23))
     footer(draw)
     return image
 
@@ -506,12 +619,12 @@ def output_mergado(ctx: dict) -> Image.Image:
     image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
     header(draw, "SCENÁR 03 / VÝSTUP", "987 produktov v master feede", "master_feed.xml + CSV · mapping.json · 1 000 vstupov")
-    panel(draw, (M, 206, 610, 800))
-    text(draw, (M + 26, 230), "Master feed", 24, INK, True)
-    text(draw, (M + 26, 264), "Z 3 feedov do jedného", 15, MUTED)
-    text(draw, (M + 26, 302), fmt_int(report["processed"]), 78, TEAL_DARK, True)
-    text(draw, (M + 26, 382), "produktov", 20, INK, True)
-    text(draw, (M + 26, 412), "13 na kontrolu · 5 nulových skladov", 14, MUTED)
+    panel(draw, (M, 206, 580, 800))
+    text(draw, (M + 24, 230), "Master feed", 24, INK, "medium", "serif")
+    text(draw, (M + 24, 262), "Z 3 feedov do jedného", 12, MUTED, "regular", "mono")
+    text(draw, (M + 24, 296), fmt_int(report["processed"]), 64, ACCENT, "medium", "mono")
+    text(draw, (M + 24, 378), "produktov", 18, INK, "medium", "sans")
+    text(draw, (M + 24, 406), "13 na kontrolu · 5 nulových skladov", 12, MUTED, "regular", "mono")
     items = [
         ("master_feed.xml", "987 produktov, XML"),
         ("master_feed.csv", "ten istý feed pre CSV"),
@@ -519,26 +632,14 @@ def output_mergado(ctx: dict) -> Image.Image:
         ("report.json + report.md", "duplicity, meny, ceny"),
     ]
     for index, (name, note) in enumerate(items):
-        y = 466 + index * 66
-        _file_icon(draw, M + 26, y, "XML" if name.endswith(".xml") else "CSV" if name.endswith(".csv") else "DOC", TEAL if index < 2 else AMBER)
-        text(draw, (M + 76, y), name, 17, INK, True)
-        text(draw, (M + 76, y + 26), note, 13, MUTED)
+        y = 452 + index * 64
+        _file_row(draw, M + 24, y, "XML" if name.endswith(".xml") else "CSV" if name.endswith(".csv") else "DOC", name, note, ACCENT if index < 2 else GREEN)
     for index, label in enumerate(("987/1000", "unikátne EAN", "Decimal")):
-        _badge(draw, M + 26 + index * 142, 752, label, TEAL_SOFT, TEAL_DARK)
+        badge(draw, M + 24 + index * 140, 742, label, GREEN_SOFT, GREEN)
 
-    panel(draw, (634, 206, 1368, 800), fill="#0E1726", outline="#223047")
-    text(draw, (658, 230), "master_feed.csv", 17, "#8DE4D7", True, mono=True)
-    text(draw, (W - 88, 230), "ukážka", 13, "#6F7E91", anchor="ra")
     csv_path = ctx["root"] / "output" / "mergado" / "master_feed.csv"
     lines = csv_path.read_text(encoding="utf-8-sig").splitlines()[:20]
-    y = 270
-    for index, line in enumerate(lines):
-        if index == 0:
-            color = "#8DE4D7"
-        else:
-            color = CODE_TEXT
-        text(draw, (658, y), fit(draw, line, font(13, mono=True), 660), 13, color, mono=True)
-        y += 24
+    _code_panel(draw, "master_feed.csv", lines, line_size=12, step=22)
     footer(draw)
     return image
 
@@ -570,8 +671,8 @@ def report_image(ctx: dict, scenario: str) -> Image.Image:
     header(draw, "REPORT / VÝSLEDOK", title, "Každé upozornenie je v reporte. Žiadna ticho prejdená chyba.")
     cards = [
         (str(report["processed"]), "automaticky", "spracované", GREEN, GREEN_SOFT),
-        (str(report["flagged"]), "na kontrolu", "flagged, nie processed", AMBER, AMBER_SOFT),
-        (str(report["silent_errors"]), "ticho prejdené", "musí byť 0", TEAL, TEAL_SOFT),
+        (str(report["flagged"]), "na kontrolu", "flagged, nie processed", ACCENT, ACCENT_SOFT),
+        (str(report["silent_errors"]), "ticho prejdené", "musí byť 0", INK, INK_SOFT),
     ]
     if scenario == "shoptet":
         extra = (str(report.get("rounding_lines", 0)), "rounding line", "0,01 CZK viditeľne")
@@ -579,95 +680,90 @@ def report_image(ctx: dict, scenario: str) -> Image.Image:
         extra = (f"{report['lines_posted']}/{report['lines_total']}", "riadkov", "0 unmatched")
     else:
         extra = (fmt_int(report["input_count"]), "vstupov", "987 v masteri")
-    cards.append((extra[0], extra[1], extra[2], "#2563EB", "#DBEAFE"))
-    card_w = (W - 2 * M - 3 * 20) // 4
+    cards.append((extra[0], extra[1], extra[2], ACCENT, ACCENT_SOFT))
+    card_w = (W - 2 * M - 3 * 18) // 4
     for index, (value, label, note, accent, soft) in enumerate(cards):
-        x = M + index * (card_w + 20)
-        panel(draw, (x, 206, x + card_w, 390))
-        draw.rounded_rectangle((x, 206, x + 7, 390), radius=3, fill=accent)
-        text(draw, (x + 24, 226), value, 52 if len(value) < 6 else 40, INK, True)
-        text(draw, (x + 24, 300), label, 18, INK, True)
-        text(draw, (x + 24, 328), note, 13, MUTED)
-        draw.rounded_rectangle((x + 24, 356, x + 24 + 46, 364), radius=4, fill=soft)
+        x = M + index * (card_w + 18)
+        panel(draw, (x, 206, x + card_w, 380))
+        draw.rectangle((x, 206, x + card_w, 210), fill=accent)
+        text(draw, (x + 20, 228), value, 40 if len(value) < 6 else 32, INK, "medium", "mono")
+        text(draw, (x + 20, 300), label, 16, INK, "medium", "serif")
+        text(draw, (x + 20, 326), note, 12, MUTED, "regular", "mono")
+        draw.rectangle((x + 20, 356, x + 66, 360), fill=soft)
 
-    panel(draw, (M, 416, 790, 800))
-    text(draw, (M + 26, 440), "Na kontrolu", 24, INK, True)
-    text(draw, (764, 444), f"{report['flagged']} položiek", 14, AMBER, True, anchor="ra")
+    panel(draw, (M, 404, 790, 800))
+    text(draw, (M + 24, 428), "Na kontrolu", 24, INK, "medium", "serif")
+    text(draw, (766, 432), f"{report['flagged']} položiek", 11, ACCENT, "medium", "mono", anchor="ra")
     flagged = report.get("flagged_items", [])
     for index, item in enumerate(flagged[:5]):
-        y = 486 + index * 46
-        draw.rounded_rectangle((M + 26, y + 4, M + 34, y + 36), radius=3, fill=AMBER)
-        text(draw, (M + 46, y), fit(draw, item["id"], font(15, True, True), 170), 15, INK, True, mono=True)
+        y = 474 + index * 44
+        draw.rectangle((M + 24, y + 4, M + 28, y + 30), fill=ACCENT)
+        text(draw, (M + 42, y), fit(draw, item["id"], font(12, "medium", "mono"), 170), 12, INK, "medium", "mono")
         reason = REASON_SK.get(item["reason"], item["reason"])
-        text(draw, (M + 224, y), fit(draw, reason, font(15), 470), 15, MUTED)
+        text(draw, (M + 220, y), fit(draw, reason, font(14), 480), 14, MUTED)
     if len(flagged) > 5:
-        text(draw, (M + 46, 486 + 5 * 46), f"+ {len(flagged) - 5} ďalších v reporte", 14, MUTED)
-    draw.line((M + 26, 742, 764, 742), fill=LINE)
-    text(draw, (M + 26, 758), "Syntetické dáta. Nie je to reálny klient.", 14, MUTED)
-    text(draw, (M + 26, 778), "Každá položka na kontrolu je viditeľná v reporte.", 13, "#7C899A")
+        text(draw, (M + 42, 474 + 5 * 44), f"+ {len(flagged) - 5} ďalších v reporte", 11, MUTED, "regular", "mono")
+    rule(draw, M + 24, 720, 766, 720, LINE)
+    text(draw, (M + 24, 736), "Syntetické dáta. Nie je to reálny klient.", 12, MUTED, "regular", "mono")
+    text(draw, (M + 24, 760), "Každá položka na kontrolu je viditeľná v reporte.", 12, MUTED, "regular", "mono")
 
-    panel(draw, (814, 416, 1368, 800))
-    text(draw, (840, 440), "Kontroly", 24, INK, True)
+    panel(draw, (814, 404, 1368, 800))
+    text(draw, (838, 428), "Kontroly", 24, INK, "medium", "serif")
     checks = report.get("checks", [])
     for index, check in enumerate(checks[:7]):
-        y = 484 + index * 38
-        color = GREEN if check["passed"] else RED
-        draw.ellipse((840, y + 5, 856, y + 21), fill=color)
-        text(draw, (846, y + 8), "✓" if check["passed"] else "!", 13, "#FFFFFF", True, anchor="mm")
+        y = 474 + index * 38
+        color = GREEN if check["passed"] else ACCENT
+        draw.ellipse((838, y + 5, 852, y + 19), fill=color)
+        text(draw, (845, y + 7), "✓" if check["passed"] else "!", 10, CARD, "bold", "sans", anchor="mm")
         label = CHECK_SK.get(check["name"], check["name"])
-        text(draw, (870, y), fit(draw, label, font(15, True), 300), 15, INK, True)
-    draw.rounded_rectangle((840, 748, 1342, 788), radius=8, fill=AMBER_SOFT)
-    text(draw, (856, 756), f"{len(report.get('warnings', []))} upozornení · všetky v report.json", 14, AMBER, True)
+        text(draw, (864, y), fit(draw, label, font(14, "medium"), 300), 14, INK, "medium", "sans")
+    draw.rectangle((838, 742, 1342, 782), fill=ACCENT_SOFT, outline=LINE)
+    text(draw, (854, 752), f"{len(report.get('warnings', []))} upozornení · všetky v report.json", 12, ACCENT, "medium", "mono")
     footer(draw)
     return image
 
 
 def title_image(ctx: dict, scenario: str) -> Image.Image:
     report = ctx["reports"][scenario]
-    image = Image.new("RGB", (W, H), TERM_BG)
+    image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
-    for y in range(H):
-        ratio = y / H
-        color = (11 + int(6 * ratio), 18 + int(14 * ratio), 32 + int(18 * ratio))
-        draw.line((0, y, W, y), fill=color)
-    draw.rectangle((0, 0, W, 9), fill=TEAL)
-    text(draw, (M, 74), "PEREPOLKIN.SK / DEMO PACK", 18, "#8DE4D7", True)
+    draw.rectangle((0, 0, W, 5), fill=ACCENT)
+    text(draw, (M, 54), "PEREPOLKIN.SK / DEMO PACK", 11, MUTED, "medium", "mono")
+    text(draw, (W - M, 54), "SYNTETICKÉ DÁTA", 11, ACCENT, "medium", "mono", anchor="ra")
+    text(draw, (M, 110), "LOKÁLNY CLI BEH / 2026", 11, ACCENT, "medium", "mono")
     title = {"shoptet": "Shoptet → Pohoda", "invoices": "Dodávateľské faktúry → Pohoda", "mergado": "Mergado / XML feed"}[scenario]
-    lines = wrap(draw, title, font(80, True), W - 2 * M)
-    y = 220
-    for line in lines:
-        text(draw, (M, y), line, 80, "#FFFFFF", True)
-        y += 96
-    draw.rounded_rectangle((M, y + 22, M + 92, y + 30), radius=4, fill=TEAL)
+    y = 196
+    draw.rectangle((M - 24, y + 4, M - 18, y + 94), fill=ACCENT)
+    title_run(draw, M, y, title, 78, INK, W - 2 * M - 40)
+    y += 112
+    rule(draw, M, y + 18, M + 220, y + 18, ACCENT)
     subtitle = {
         "shoptet": f"Syntetické dáta. {report['input_count']} objednávok.",
         "invoices": f"Syntetické dáta. {report['input_count']} PDF faktúr.",
         "mergado": f"Syntetické dáta. {fmt_int(report['input_count'])} produktov.",
     }[scenario]
-    text(draw, (M, y + 60), subtitle, 34, "#D7E2EE")
-    text(draw, (M, 760), "Lokálny CLI beh · bez siete · bez reálneho klienta", 20, "#8A98AA")
-    text(draw, (W - M, 760), "DEMO", 30, "#8DE4D7", True, anchor="ra")
+    text(draw, (M, y + 48), subtitle, 30, MUTED)
+    text(draw, (M, 760), "Lokálny CLI beh · bez siete · bez reálneho klienta", 14, MUTED, "regular", "mono")
+    stamp(draw, W - M - 72, 748, "DEMO")
     return image
 
 
 def cta_image(ctx: dict, scenario: str) -> Image.Image:
-    image = Image.new("RGB", (W, H), TERM_BG)
+    image = Image.new("RGB", (W, H), BG)
     draw = ImageDraw.Draw(image)
-    for y in range(H):
-        ratio = y / H
-        color = (11 + int(7 * ratio), 18 + int(20 * ratio), 32 + int(20 * ratio))
-        draw.line((0, y, W, y), fill=color)
-    draw.rectangle((0, 0, W, 9), fill=TEAL)
-    text(draw, (M, 92), "ĎALŠÍ KROK", 18, "#8DE4D7", True)
-    text(draw, (M, 190), "Chcete test na", 76, "#FFFFFF", True)
-    text(draw, (M, 278), "vašich dátach?", 76, "#FFFFFF", True)
-    draw.rounded_rectangle((M, 400, M + 92, 408), radius=4, fill=TEAL)
-    text(draw, (M, 446), "Pošlite 2 vzorky.", 44, "#D7E2EE")
-    text(draw, (M, 522), "Ukážeme rovnaký report na vašich dátach.", 26, "#AAB6C5")
-    draw.rounded_rectangle((M, 636, 420, 700), radius=12, fill=TEAL)
-    text(draw, (M + 30, 652), "perepolkin.sk", 28, "#062A26", True)
-    text(draw, (W - M, 760), "DEMO · syntetické dáta", 18, "#8A98AA", anchor="ra")
-    text(draw, (M, 760), "Nie je to klientsky prípad.", 18, "#8A98AA")
+    draw.rectangle((0, 0, W, 5), fill=ACCENT)
+    text(draw, (M, 54), "PEREPOLKIN.SK / DEMO PACK", 11, MUTED, "medium", "mono")
+    text(draw, (W - M, 54), "ĎALŠÍ KROK", 11, ACCENT, "medium", "mono", anchor="ra")
+    text(draw, (M, 118), "Chcete test na", 72, INK, "medium", "serif")
+    text(draw, (M, 204), "vašich dátach?", 72, INK, "medium", "serif")
+    draw.rectangle((M, 318, M + 220, 322), fill=ACCENT)
+    text(draw, (M, 360), "Pošlite 2 vzorky.", 36, INK, "medium", "serif")
+    text(draw, (M, 430), "Ukážeme rovnaký report na vašich dátach.", 20, MUTED)
+    draw.rectangle((M, 548, 420, 606), fill=ACCENT)
+    text(draw, (M + 26, 568), "perepolkin.sk", 17, CARD, "medium", "mono")
+    text(draw, (M, 650), "Demo je syntetické. Nie je to klientsky prípad.", 12, MUTED, "regular", "mono")
+    text(draw, (M, 760), "Syntetické dáta · všetky firmy a doklady sú vymyslené · bez reálneho IČO/DIČ", 12, MUTED)
+    stamp(draw, W - M - 72, 748, "DEMO")
     return image
 
 
@@ -694,7 +790,6 @@ def _metrics_md(report: dict) -> str:
             f"- Vstup: {input_line}",
             f"- Výsledok: {result}",
             f"- Ticho prejdené: {report['silent_errors']}",
-            f"- Čas: {report['duration_ms'] / 1000:.0f} s",
             "- Limity: syntetické dáta, nie reálny klient",
             "- CTA: Chcem test na svojich dátach",
             "",
@@ -702,16 +797,67 @@ def _metrics_md(report: dict) -> str:
     )
 
 
-def handoff_readme(reports: dict) -> str:
-    rows = []
-    for scenario, report in reports.items():
-        rows.append(
-            f"| `{scenario}/report.png` | Karta „{report['title']}“ | {report['processed']} automaticky, {report['flagged']} na kontrolu, 0 ticho prejdených |"
-        )
+def _manifest_object(report: dict) -> dict:
+    scenario = report["scenario"]
+    if scenario == "shoptet":
+        alt = "Syntetické demo dáta, 50 objednávok, 46 automaticky, 4 na kontrolu"
+        caption = "50 objednávok. 46 automaticky, 4 na kontrolu. 0 ticho prejdených chýb."
+    elif scenario == "invoices":
+        alt = "Syntetické demo dáta, 10 PDF faktúr, 8 automaticky, 2 na kontrolu, 48/48 riadkov"
+        caption = "10 PDF faktúr. 8 automaticky, 2 na kontrolu. 48/48 riadkov. 0 ticho prejdených chýb."
+    else:
+        alt = "Syntetické demo dáta, 3 feedy, 1 000 produktov, 987 v master feede, 13 na kontrolu"
+        caption = "3 feedy, 1 000 produktov. 987 v master feede, 13 na kontrolu. 0 ticho prejdených chýb."
+    return {
+        "scenario": scenario,
+        "title": report["title"],
+        "metrics": {
+            "input": report["input_count"],
+            "auto": report["processed"],
+            "review": report["flagged"],
+            "silent": report["silent_errors"],
+        },
+        "images": {
+            "input": f"handoff/{scenario}/input.png",
+            "run": f"handoff/{scenario}/run.png",
+            "output": f"handoff/{scenario}/output.png",
+            "report": f"handoff/{scenario}/report.png",
+        },
+        "video": f"handoff/{scenario}/video.mp4",
+        "raw": "handoff/raw/run-all.mp4",
+        "poster": f"handoff/{scenario}/run.png",
+        "alt": alt,
+        "caption": caption,
+    }
+
+
+def _git_meta() -> dict:
+    def run(*args: str) -> str:
+        try:
+            result = subprocess.run(
+                ["git", *args], cwd=REPO_ROOT, capture_output=True, text=True, timeout=5
+            )
+            return result.stdout.strip() if result.returncode == 0 else ""
+        except (OSError, subprocess.SubprocessError):
+            return ""
+
+    return {
+        "remote": os.environ.get("DEMO_REMOTE") or run("remote", "get-url", "origin") or "local",
+        "branch": run("rev-parse", "--abbrev-ref", "HEAD") or "feat/demo-assets-v2",
+        "commit": os.environ.get("DEMO_COMMIT") or run("rev-parse", "--short", "HEAD") or "local",
+    }
+
+
+def handoff_readme(reports: dict, meta: dict | None = None) -> str:
+    meta = meta or _git_meta()
     return f"""# Handoff pre dizajnéra
 
 Demo pack pre **perepolkin.sk**. Všetko je syntetické, bez reálneho klienta,
 bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
+
+Vizuál v2 používa tokeny webu: cream `#F7F4EE`, karty `#FDFBF7`,
+text `#1F1B16`, akcent `#A8382A`, OK `#2F6B4B`; Newsreader + Inter +
+JetBrains Mono. Terminál je tmavý `#1F1B16`, warning je akcentná červená.
 
 ## Kam čo patrí
 
@@ -725,6 +871,10 @@ bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
 | `handoff/mergado/...` | To isté pre Mergado feed (987 / 13 / 0) |
 | `handoff/{{scenario}}/metrics.md` | Presné čísla a texty pre kartu |
 | `handoff/{{scenario}}/video.mp4` | 90 s video pre daný scenár, 1440×900, ticho |
+| `handoff/raw/run-all.mp4` | Surová 59,5 s nahrávka reálneho `run-all`, bez strihu |
+| `handoff/raw/poster.png` | Poster pre raw video |
+| `handoff/raw/README.md` | Čo presne raw nahrávka ukazuje |
+| `handoff/manifest.json` | Strojový manifest všetkých troch scenárov |
 | `handoff/README.md` | Tento súbor |
 | `handoff/perepolkin-demo-pack.zip` | ZIP so vstupmi, výstupmi, reportmi, screenshotmi a videom |
 
@@ -735,10 +885,11 @@ bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
 """ + "\n".join(
         f"| {report['title']} | {fmt_int(report['input_count'])} | {report['processed']} | {report['flagged']} | {report['silent_errors']} |"
         for report in reports.values()
-    ) + """
+    ) + f"""
 
-**Nepíšte „0 errors“.** Správna formulácia je **„0 ticho prejdených chýb“**
-a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípady.
+**Nepíšte „nulový počet chýb“.** Správna formulácia je
+**„0 ticho prejdených chýb“** a k tomu počet položiek na ručnú kontrolu.
+Demo má zámerne flagged prípady.
 
 ## Odporúčané texty
 
@@ -777,13 +928,19 @@ a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípad
 
 - Tri verzie: `handoff/shoptet/video.mp4`, `handoff/invoices/video.mp4`,
   `handoff/mergado/video.mp4`.
-- 90 sekúnd, 1440×900, bez browser chrome, veľký font, ticho.
+- 90 sekúnd, 1440×900, 30 fps, bez zvuku, bez browser chrome, veľký font.
 - Osnova: titul → terminál → výstup → report → CTA „Pošlite 2 vzorky“.
+- Samostatná surová nahrávka: `handoff/raw/run-all.mp4` (59,5 s, 1440×900,
+  30 fps, bez zvuku, reálny `python -m demo run-all`, bez strihu a bez hudby).
+  Poster je `handoff/raw/poster.png`, popis `handoff/raw/README.md`.
+  Na stránke ju použite ako samostatný odkaz „Pozrieť surový beh“.
 
 ## Odkazy
 
-- GitHub: https://github.com/perepolkin/shoptet-pohoda-demo
-  *(ak sa účet repozitára líši, nahraďte URL)*
+- GitHub: https://github.com/Saa1001zp/shoptet-pohoda-demo
+- Branch: `{meta['branch']}`
+- Commit: `{meta['commit']}`
+- Remote: `{meta['remote']}`
 - ZIP: `handoff/perepolkin-demo-pack.zip`
 - Web: https://perepolkin.sk
 
@@ -799,7 +956,7 @@ a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípad
 
 - [ ] Na karte sú presné čísla z `metrics.md`.
 - [ ] Je viditeľné DEMO / syntetické dáta.
-- [ ] Nie je tam „0 errors“.
+- [ ] Nie je tam „nulový počet chýb“.
 - [ ] Nie je tam reálne IČO/DIČ ani reálne meno.
 - [ ] CTA je „Chcem test na svojich dátach“.
 """
@@ -809,7 +966,6 @@ def _build_video(scenario: str, ctx: dict, out_path: Path) -> None:
     ffmpeg = shutil.which("ffmpeg")
     if not ffmpeg:
         raise RuntimeError("ffmpeg nie je v PATH. Použite `--skip-video` alebo nainštalujte ffmpeg.")
-    report = ctx["reports"][scenario]
     log_lines = (ctx["root"] / "output" / scenario / "run.log").read_text(encoding="utf-8").splitlines()
     with tempfile.TemporaryDirectory(prefix=f"demo-video-{scenario}-") as tmp:
         tmp_path = Path(tmp)
@@ -819,7 +975,6 @@ def _build_video(scenario: str, ctx: dict, out_path: Path) -> None:
         _save(title_image(ctx, scenario), title_path)
         frames.append((title_path, 10))
 
-        # Reveal the terminal progressively, two lines per two-second frame.
         for index in range(10):
             reveal = max(2, int(len(log_lines) * (index + 1) / 10))
             path = tmp_path / f"01_run_{index:02d}.png"
@@ -836,7 +991,7 @@ def _build_video(scenario: str, ctx: dict, out_path: Path) -> None:
 
         cta_path = tmp_path / "04_cta.png"
         _save(cta_image(ctx, scenario), cta_path)
-        frames.append((cta_path, 10))
+        frames.append((cta_path, 20.1))
 
         concat = tmp_path / "concat.txt"
         lines = []
@@ -854,13 +1009,13 @@ def _build_video(scenario: str, ctx: dict, out_path: Path) -> None:
             "0",
             "-i",
             str(concat),
-            "-f",
-            "lavfi",
-            "-i",
-            "anullsrc=channel_layout=stereo:sample_rate=48000",
-            "-shortest",
+            "-vf",
+            "tpad=stop_mode=clone:stop_duration=1",
             "-r",
             "30",
+            "-frames:v",
+            "2700",
+            "-an",
             "-c:v",
             "libx264",
             "-preset",
@@ -871,10 +1026,6 @@ def _build_video(scenario: str, ctx: dict, out_path: Path) -> None:
             "stillimage",
             "-pix_fmt",
             "yuv420p",
-            "-c:a",
-            "aac",
-            "-b:a",
-            "96k",
             "-movflags",
             "+faststart",
             "-map_metadata",
@@ -916,14 +1067,31 @@ def build_all(data_dir: Path | None = None, make_video: bool = True) -> dict:
             _build_video(scenario, ctx, video / f"{scenario}.mp4")
             shutil.copyfile(video / f"{scenario}.mp4", target / "video.mp4")
 
-    write_text(handoff / "README.md", handoff_readme(ctx["reports"]))
-    write_text(handoff_root() / "README.md", handoff_readme(ctx["reports"]))
-    return {"screenshots": shots, "video": video if make_video else None, "handoff": handoff}
+    objects = [_manifest_object(ctx["reports"][scenario]) for scenario in SCENARIOS]
+    meta = _git_meta()
+    manifest = {
+        "generated_at": "2026-11-10T10:00:00Z",
+        "synthetic": True,
+        "source": {
+            "remote": meta["remote"],
+            "branch": meta["branch"],
+            "commit": meta["commit"],
+        },
+        "scenarios": objects,
+    }
+    write_text(handoff / "manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
+    for obj in objects:
+        write_text(handoff / obj["scenario"] / "manifest.json", json.dumps(obj, ensure_ascii=False, indent=2) + "\n")
+
+    readme = handoff_readme(ctx["reports"], meta)
+    write_text(handoff / "README.md", readme)
+    write_text(handoff_root() / "README.md", readme)
+    return {"screenshots": shots, "video": video if make_video else None, "handoff": handoff, "manifest": handoff / "manifest.json"}
 
 
 def _zip_entries(root: Path) -> Iterable[tuple[Path, str]]:
     prefix = "shoptet-pohoda-demo"
-    fixed = ["README.md", "LIMITATIONS.md", "handoff.md", "pyproject.toml", "Makefile", ".python-version"]
+    fixed = ["README.md", "LIMITATIONS.md", "handoff.md", "pyproject.toml", "Makefile", ".python-version", "uv.lock"]
     for name in fixed:
         path = REPO_ROOT / name
         if path.exists():
@@ -933,6 +1101,15 @@ def _zip_entries(root: Path) -> Iterable[tuple[Path, str]]:
         if "__pycache__" in path.parts or "tests" in path.parts:
             continue
         yield path, f"{prefix}/{path.relative_to(REPO_ROOT).as_posix()}"
+
+    for path in sorted((REPO_ROOT / "scripts").rglob("*.py")):
+        if "__pycache__" in path.parts:
+            continue
+        yield path, f"{prefix}/{path.relative_to(REPO_ROOT).as_posix()}"
+
+    for path in sorted((REPO_ROOT / "assets" / "fonts").rglob("*")):
+        if path.is_file():
+            yield path, f"{prefix}/assets/fonts/{path.relative_to(REPO_ROOT / 'assets' / 'fonts').as_posix()}"
 
     for path in sorted((root / "input").rglob("*")):
         if path.is_file():

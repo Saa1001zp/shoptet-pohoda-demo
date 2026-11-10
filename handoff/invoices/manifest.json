@@ -1,0 +1,21 @@
+{
+  "scenario": "invoices",
+  "title": "Dodávateľské faktúry → Pohoda",
+  "metrics": {
+    "input": 10,
+    "auto": 8,
+    "review": 2,
+    "silent": 0
+  },
+  "images": {
+    "input": "handoff/invoices/input.png",
+    "run": "handoff/invoices/run.png",
+    "output": "handoff/invoices/output.png",
+    "report": "handoff/invoices/report.png"
+  },
+  "video": "handoff/invoices/video.mp4",
+  "raw": "handoff/raw/run-all.mp4",
+  "poster": "handoff/invoices/run.png",
+  "alt": "Syntetické demo dáta, 10 PDF faktúr, 8 automaticky, 2 na kontrolu, 48/48 riadkov",
+  "caption": "10 PDF faktúr. 8 automaticky, 2 na kontrolu. 48/48 riadkov. 0 ticho prejdených chýb."
+}

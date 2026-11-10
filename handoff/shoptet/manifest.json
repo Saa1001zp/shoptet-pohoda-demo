@@ -1,0 +1,21 @@
+{
+  "scenario": "shoptet",
+  "title": "Shoptet → Pohoda",
+  "metrics": {
+    "input": 50,
+    "auto": 46,
+    "review": 4,
+    "silent": 0
+  },
+  "images": {
+    "input": "handoff/shoptet/input.png",
+    "run": "handoff/shoptet/run.png",
+    "output": "handoff/shoptet/output.png",
+    "report": "handoff/shoptet/report.png"
+  },
+  "video": "handoff/shoptet/video.mp4",
+  "raw": "handoff/raw/run-all.mp4",
+  "poster": "handoff/shoptet/run.png",
+  "alt": "Syntetické demo dáta, 50 objednávok, 46 automaticky, 4 na kontrolu",
+  "caption": "50 objednávok. 46 automaticky, 4 na kontrolu. 0 ticho prejdených chýb."
+}

@@ -10,7 +10,7 @@ scenáre: Shoptet → Pohoda, dodávateľské faktúry → Pohoda a Mergado/XML 
 ## Rýchly štart
 
 ```bash
-git clone https://github.com/perepolkin/shoptet-pohoda-demo.git
+git clone https://github.com/Saa1001zp/shoptet-pohoda-demo.git
 cd shoptet-pohoda-demo
 uv sync --extra dev
 make demo          # vygeneruje vstupy, spustí 3 scenáre, zapíše reporty
@@ -147,8 +147,12 @@ make assets
 ```
 
 Vytvorí 12 screenshotov (4 na scenár) a 3 videá. Screenshoty sú 1440×900,
-PNG, s vodoznakom DEMO. Videá sú 1440×900, 90 s, ticho, bez browser chrome.
-Výstup je v `assets/` a v `handoff/{scenario}/`.
+PNG, s vodoznakom DEMO. Videá sú 1440×900, 90 s, 30 fps, ticho, bez browser
+chrome. Výstup je v `assets/` a v `handoff/{scenario}/`.
+
+Surová 59,5 s nahrávka reálneho behu je v `handoff/raw/run-all.mp4`; poster
+`handoff/raw/poster.png`, popis `handoff/raw/README.md`. Manifest pre dizajnéra
+je `handoff/manifest.json`.
 
 ## ZIP a handoff
 

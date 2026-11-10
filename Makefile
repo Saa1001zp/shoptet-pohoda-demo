@@ -1,4 +1,4 @@
-.PHONY: install demo generate run-all test assets pack clean
+.PHONY: install demo generate run-all test assets raw pack clean
 
 install:
 	uv sync --extra dev
@@ -16,6 +16,9 @@ test:
 
 assets:
 	uv run python -m demo assets
+
+raw:
+	uv run python scripts/record_raw.py
 
 pack:
 	uv run python -m demo pack

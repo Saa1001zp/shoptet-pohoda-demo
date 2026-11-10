@@ -1,0 +1,21 @@
+{
+  "scenario": "mergado",
+  "title": "Mergado / XML feed",
+  "metrics": {
+    "input": 1000,
+    "auto": 987,
+    "review": 13,
+    "silent": 0
+  },
+  "images": {
+    "input": "handoff/mergado/input.png",
+    "run": "handoff/mergado/run.png",
+    "output": "handoff/mergado/output.png",
+    "report": "handoff/mergado/report.png"
+  },
+  "video": "handoff/mergado/video.mp4",
+  "raw": "handoff/raw/run-all.mp4",
+  "poster": "handoff/mergado/run.png",
+  "alt": "Syntetické demo dáta, 3 feedy, 1 000 produktov, 987 v master feede, 13 na kontrolu",
+  "caption": "3 feedy, 1 000 produktov. 987 v master feede, 13 na kontrolu. 0 ticho prejdených chýb."
+}

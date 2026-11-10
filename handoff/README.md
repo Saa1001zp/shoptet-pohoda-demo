@@ -3,6 +3,10 @@
 Demo pack pre **perepolkin.sk**. Všetko je syntetické, bez reálneho klienta,
 bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
 
+Vizuál v2 používa tokeny webu: cream `#F7F4EE`, karty `#FDFBF7`,
+text `#1F1B16`, akcent `#A8382A`, OK `#2F6B4B`; Newsreader + Inter +
+JetBrains Mono. Terminál je tmavý `#1F1B16`, warning je akcentná červená.
+
 ## Kam čo patrí
 
 | Súbor | Použitie |
@@ -15,6 +19,10 @@ bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
 | `handoff/mergado/...` | To isté pre Mergado feed (987 / 13 / 0) |
 | `handoff/{scenario}/metrics.md` | Presné čísla a texty pre kartu |
 | `handoff/{scenario}/video.mp4` | 90 s video pre daný scenár, 1440×900, ticho |
+| `handoff/raw/run-all.mp4` | Surová 59,5 s nahrávka reálneho `run-all`, bez strihu |
+| `handoff/raw/poster.png` | Poster pre raw video |
+| `handoff/raw/README.md` | Čo presne raw nahrávka ukazuje |
+| `handoff/manifest.json` | Strojový manifest všetkých troch scenárov |
 | `handoff/README.md` | Tento súbor |
 | `handoff/perepolkin-demo-pack.zip` | ZIP so vstupmi, výstupmi, reportmi, screenshotmi a videom |
 
@@ -26,8 +34,9 @@ bez IČO/DIČ a bez live pripojenia na Shoptet/Pohoda/Mergado.
 | Dodávateľské faktúry → Pohoda | 10 | 8 | 2 | 0 |
 | Mergado / XML feed | 1 000 | 987 | 13 | 0 |
 
-**Nepíšte „0 errors“.** Správna formulácia je **„0 ticho prejdených chýb“**
-a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípady.
+**Nepíšte „nulový počet chýb“.** Správna formulácia je
+**„0 ticho prejdených chýb“** a k tomu počet položiek na ručnú kontrolu.
+Demo má zámerne flagged prípady.
 
 ## Odporúčané texty
 
@@ -66,13 +75,19 @@ a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípad
 
 - Tri verzie: `handoff/shoptet/video.mp4`, `handoff/invoices/video.mp4`,
   `handoff/mergado/video.mp4`.
-- 90 sekúnd, 1440×900, bez browser chrome, veľký font, ticho.
+- 90 sekúnd, 1440×900, 30 fps, bez zvuku, bez browser chrome, veľký font.
 - Osnova: titul → terminál → výstup → report → CTA „Pošlite 2 vzorky“.
+- Samostatná surová nahrávka: `handoff/raw/run-all.mp4` (59,5 s, 1440×900,
+  30 fps, bez zvuku, reálny `python -m demo run-all`, bez strihu a bez hudby).
+  Poster je `handoff/raw/poster.png`, popis `handoff/raw/README.md`.
+  Na stránke ju použite ako samostatný odkaz „Pozrieť surový beh“.
 
 ## Odkazy
 
-- GitHub: https://github.com/perepolkin/shoptet-pohoda-demo
-  *(ak sa účet repozitára líši, nahraďte URL)*
+- GitHub: https://github.com/Saa1001zp/shoptet-pohoda-demo
+- Branch: `feat/demo-assets-v2`
+- Commit: `a24d2ad`
+- Remote: `https://github.com/Saa1001zp/shoptet-pohoda-demo.git`
 - ZIP: `handoff/perepolkin-demo-pack.zip`
 - Web: https://perepolkin.sk
 
@@ -88,6 +103,6 @@ a k tomu počet položiek na ručnú kontrolu. Demo má zámerne flagged prípad
 
 - [ ] Na karte sú presné čísla z `metrics.md`.
 - [ ] Je viditeľné DEMO / syntetické dáta.
-- [ ] Nie je tam „0 errors“.
+- [ ] Nie je tam „nulový počet chýb“.
 - [ ] Nie je tam reálne IČO/DIČ ani reálne meno.
 - [ ] CTA je „Chcem test na svojich dátach“.

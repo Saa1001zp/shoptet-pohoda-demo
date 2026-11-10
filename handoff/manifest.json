@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-11-10T10:00:00Z",
+  "synthetic": true,
+  "source": {
+    "remote": "https://github.com/Saa1001zp/shoptet-pohoda-demo.git",
+    "branch": "feat/demo-assets-v2",
+    "commit": "a24d2ad"
+  },
+  "scenarios": [
+    {
+      "scenario": "shoptet",
+      "title": "Shoptet → Pohoda",
+      "metrics": {
+        "input": 50,
+        "auto": 46,
+        "review": 4,
+        "silent": 0
+      },
+      "images": {
+        "input": "handoff/shoptet/input.png",
+        "run": "handoff/shoptet/run.png",
+        "output": "handoff/shoptet/output.png",
+        "report": "handoff/shoptet/report.png"
+      },
+      "video": "handoff/shoptet/video.mp4",
+      "raw": "handoff/raw/run-all.mp4",
+      "poster": "handoff/shoptet/run.png",
+      "alt": "Syntetické demo dáta, 50 objednávok, 46 automaticky, 4 na kontrolu",
+      "caption": "50 objednávok. 46 automaticky, 4 na kontrolu. 0 ticho prejdených chýb."
+    },
+    {
+      "scenario": "invoices",
+      "title": "Dodávateľské faktúry → Pohoda",
+      "metrics": {
+        "input": 10,
+        "auto": 8,
+        "review": 2,
+        "silent": 0
+      },
+      "images": {
+        "input": "handoff/invoices/input.png",
+        "run": "handoff/invoices/run.png",
+        "output": "handoff/invoices/output.png",
+        "report": "handoff/invoices/report.png"
+      },
+      "video": "handoff/invoices/video.mp4",
+      "raw": "handoff/raw/run-all.mp4",
+      "poster": "handoff/invoices/run.png",
+      "alt": "Syntetické demo dáta, 10 PDF faktúr, 8 automaticky, 2 na kontrolu, 48/48 riadkov",
+      "caption": "10 PDF faktúr. 8 automaticky, 2 na kontrolu. 48/48 riadkov. 0 ticho prejdených chýb."
+    },
+    {
+      "scenario": "mergado",
+      "title": "Mergado / XML feed",
+      "metrics": {
+        "input": 1000,
+        "auto": 987,
+        "review": 13,
+        "silent": 0
+      },
+      "images": {
+        "input": "handoff/mergado/input.png",
+        "run": "handoff/mergado/run.png",
+        "output": "handoff/mergado/output.png",
+        "report": "handoff/mergado/report.png"
+      },
+      "video": "handoff/mergado/video.mp4",
+      "raw": "handoff/raw/run-all.mp4",
+      "poster": "handoff/mergado/run.png",
+      "alt": "Syntetické demo dáta, 3 feedy, 1 000 produktov, 987 v master feede, 13 na kontrolu",
+      "caption": "3 feedy, 1 000 produktov. 987 v master feede, 13 na kontrolu. 0 ticho prejdených chýb."
+    }
+  ]
+}

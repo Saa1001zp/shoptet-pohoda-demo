@@ -45,7 +45,8 @@ Toto je demo, nie produkčná integrácia a nie klientsky prípad.
 ## Video a screenshoty
 
 - Sú vygenerované z demo výstupov, s watermarkom DEMO.
-- Video má 1440×900, bez browser chrome, so syntetickými dátami.
+- Video má 1440×900, 90 s, 30 fps a je bez zvuku.
+- Surová nahrávka `handoff/raw/run-all.mp4` má 59,5 s, 1440×900, 30 fps a je bez zvuku.
 - Hudba je voliteľná; finálne video má ticho, aby neboli licenčné problémy.
 - Screenshoty nie sú marketingový dôkaz reálneho klienta.
 
