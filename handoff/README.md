@@ -86,7 +86,7 @@ Demo má zámerne flagged prípady.
 
 - GitHub: https://github.com/Saa1001zp/shoptet-pohoda-demo
 - Branch: `feat/demo-assets-v2`
-- Commit: `a24d2ad`
+- Commit: `5462487`
 - Remote: `https://github.com/Saa1001zp/shoptet-pohoda-demo.git`
 - ZIP: `handoff/perepolkin-demo-pack.zip`
 - Web: https://perepolkin.sk

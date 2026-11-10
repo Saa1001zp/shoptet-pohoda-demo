@@ -144,7 +144,7 @@ Odporúčaná štruktúra sekcie:
   origin  https://github.com/Saa1001zp/shoptet-pohoda-demo.git (fetch)
   origin  https://github.com/Saa1001zp/shoptet-pohoda-demo.git (push)
   ```
-- Commit s v2 assetmi: `__COMMIT__`
+- Commit s v2 assetmi: `5462487`
 - ZIP: `handoff/perepolkin-demo-pack.zip`
 - Web: https://perepolkin.sk
 
