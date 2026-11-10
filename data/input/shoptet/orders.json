@@ -1,0 +1,1778 @@
+[
+  {
+    "order_id": "DEMO-2026-0001",
+    "created_at": "2026-11-01T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 01",
+      "email": "demo01@example.com",
+      "street": "Demo ulica 1",
+      "city": "Rokytnice nad Jizerou",
+      "zip": "10001",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 3,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0002",
+    "created_at": "2026-11-01T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 02",
+      "email": "demo02@example.com",
+      "street": "Demo ulica 2",
+      "city": "Pardubice",
+      "zip": "10002",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 1,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 3,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 3,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0003",
+    "created_at": "2026-11-01T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 03",
+      "email": "demo03@example.com",
+      "street": "Demo ulica 3",
+      "city": "Starý Plzenec",
+      "zip": "10003",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-004",
+        "ean": "2000000010045",
+        "name": "Demo monitor 27\"",
+        "qty": 3,
+        "unit_price": "1290.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0004",
+    "created_at": "2026-11-01T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 04",
+      "email": "demo04@example.com",
+      "street": "Demo ulica 4",
+      "city": "Kladno",
+      "zip": "10004",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 2,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0005",
+    "created_at": "2026-11-01T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 05",
+      "email": "demo05@example.com",
+      "street": "Demo ulica 5",
+      "city": "Oslavany",
+      "zip": "10005",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 3,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 2,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 2,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0006",
+    "created_at": "2026-11-01T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 06",
+      "email": "demo06@example.com",
+      "street": "Demo ulica 6",
+      "city": "Žirovnice",
+      "zip": "10006",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-007",
+        "ean": "2000000010076",
+        "name": "Demo reproduktor",
+        "qty": 1,
+        "unit_price": "249.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0007",
+    "created_at": "2026-11-02T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 07",
+      "email": "demo07@example.com",
+      "street": "Demo ulica 7",
+      "city": "Uhlířské Janovice",
+      "zip": "10007",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 2,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0008",
+    "created_at": "2026-11-02T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 08",
+      "email": "demo08@example.com",
+      "street": "Demo ulica 8",
+      "city": "Nový Knín",
+      "zip": "10008",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 1,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 2,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 3,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0009",
+    "created_at": "2026-11-02T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 09",
+      "email": "demo09@example.com",
+      "street": "Demo ulica 9",
+      "city": "Náměšť nad Oslavou",
+      "zip": "10009",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-010",
+        "ean": "2000000010106",
+        "name": "Demo kancelárske pero",
+        "qty": 3,
+        "unit_price": "12.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0010",
+    "created_at": "2026-11-02T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 10",
+      "email": "demo10@example.com",
+      "street": "Demo ulica 10",
+      "city": "Švihov",
+      "zip": "10010",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 2,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 3,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0011",
+    "created_at": "2026-11-02T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 11",
+      "email": "demo11@example.com",
+      "street": "Demo ulica 11",
+      "city": "Slatiňany",
+      "zip": "10011",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 2,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 3,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0012",
+    "created_at": "2026-11-02T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 12",
+      "email": "demo12@example.com",
+      "street": "Demo ulica 12",
+      "city": "Staňkov",
+      "zip": "10012",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-001",
+        "ean": null,
+        "name": "Demo kancelársky papier A4",
+        "qty": 3,
+        "unit_price": "199.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0013",
+    "created_at": "2026-11-02T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 13",
+      "email": "demo13@example.com",
+      "street": "Demo ulica 13",
+      "city": "Vamberk",
+      "zip": "10013",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 3,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0014",
+    "created_at": "2026-11-02T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 14",
+      "email": "demo14@example.com",
+      "street": "Demo ulica 14",
+      "city": "Heřmanův Městec",
+      "zip": "10014",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 2,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 3,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 1,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0015",
+    "created_at": "2026-11-03T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 15",
+      "email": "demo15@example.com",
+      "street": "Demo ulica 15",
+      "city": "Odolena Voda",
+      "zip": "10015",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-004",
+        "ean": "2000000010045",
+        "name": "Demo monitor 27\"",
+        "qty": 1,
+        "unit_price": "1290.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0016",
+    "created_at": "2026-11-03T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 16",
+      "email": "demo16@example.com",
+      "street": "Demo ulica 16",
+      "city": "Frýdlant",
+      "zip": "10016",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 3,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0017",
+    "created_at": "2026-11-03T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 17",
+      "email": "demo17@example.com",
+      "street": "Demo ulica 17",
+      "city": "Horní Slavkov",
+      "zip": "10017",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 2,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 3,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0018",
+    "created_at": "2026-11-03T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 18",
+      "email": "demo18@example.com",
+      "street": "Demo ulica 18",
+      "city": "Strážnice",
+      "zip": "10018",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-007",
+        "ean": "2000000010076",
+        "name": "Demo reproduktor",
+        "qty": 1,
+        "unit_price": "249.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0019",
+    "created_at": "2026-11-03T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 19",
+      "email": "demo19@example.com",
+      "street": "Demo ulica 19",
+      "city": "Bělá pod Bezdězem",
+      "zip": "10019",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 1,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 1,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0020",
+    "created_at": "2026-11-03T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 20",
+      "email": "demo20@example.com",
+      "street": "Demo ulica 20",
+      "city": "Šlapanice",
+      "zip": "10020",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 2,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 3,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 1,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0021",
+    "created_at": "2026-11-03T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 21",
+      "email": "demo21@example.com",
+      "street": "Demo ulica 21",
+      "city": "Budišov nad Budišovkou",
+      "zip": "10021",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-010",
+        "ean": "2000000010106",
+        "name": "Demo kancelárske pero",
+        "qty": 1,
+        "unit_price": "12.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0022",
+    "created_at": "2026-11-03T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 22",
+      "email": "demo22@example.com",
+      "street": "Demo ulica 22",
+      "city": "Holice",
+      "zip": "10022",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 2,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0023",
+    "created_at": "2026-11-04T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 23",
+      "email": "demo23@example.com",
+      "street": "Demo ulica 23",
+      "city": "Rotava",
+      "zip": "10023",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 1,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 1,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0024",
+    "created_at": "2026-11-04T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 24",
+      "email": "demo24@example.com",
+      "street": "Demo ulica 24",
+      "city": "Moravské Budějovice",
+      "zip": "10024",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-001",
+        "ean": "2000000010014",
+        "name": "Demo kancelársky papier A4",
+        "qty": 3,
+        "unit_price": "199.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0025",
+    "created_at": "2026-11-04T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 25",
+      "email": "demo25@example.com",
+      "street": "Demo ulica 25",
+      "city": "Choceň",
+      "zip": "10025",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 3,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0026",
+    "created_at": "2026-11-04T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 26",
+      "email": "demo26@example.com",
+      "street": "Demo ulica 26",
+      "city": "Olešnice",
+      "zip": "10026",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 1,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 2,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 1,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0027",
+    "created_at": "2026-11-04T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 27",
+      "email": "demo27@example.com",
+      "street": "Demo ulica 27",
+      "city": "Manětín",
+      "zip": "10027",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-004",
+        "ean": null,
+        "name": "Demo monitor 27\"",
+        "qty": 1,
+        "unit_price": "1290.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0028",
+    "created_at": "2026-11-04T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 28",
+      "email": "demo28@example.com",
+      "street": "Demo ulica 28",
+      "city": "Pyšely",
+      "zip": "10028",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 1,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0029",
+    "created_at": "2026-11-04T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 29",
+      "email": "demo29@example.com",
+      "street": "Demo ulica 29",
+      "city": "Třešť",
+      "zip": "10029",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 2,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 2,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0030",
+    "created_at": "2026-11-04T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 30",
+      "email": "demo30@example.com",
+      "street": "Demo ulica 30",
+      "city": "Břidličná",
+      "zip": "10030",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-007",
+        "ean": "2000000010076",
+        "name": "Demo reproduktor",
+        "qty": 3,
+        "unit_price": "249.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0031",
+    "created_at": "2026-11-05T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 31",
+      "email": "demo31@example.com",
+      "street": "Demo ulica 31",
+      "city": "Kraslice",
+      "zip": "10031",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-001",
+        "ean": "2000000010014",
+        "name": "Demo kancelársky papier A4",
+        "qty": 3,
+        "unit_price": "199.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": "859.41"
+  },
+  {
+    "order_id": "DEMO-2026-0032",
+    "created_at": "2026-11-05T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 32",
+      "email": "demo32@example.com",
+      "street": "Demo ulica 32",
+      "city": "Zlaté Hory",
+      "zip": "10032",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 1,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 2,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 2,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0033",
+    "created_at": "2026-11-05T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 33",
+      "email": "demo33@example.com",
+      "street": "Demo ulica 33",
+      "city": "Stráž pod Ralskem",
+      "zip": "10033",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-010",
+        "ean": "2000000010106",
+        "name": "Demo kancelárske pero",
+        "qty": 1,
+        "unit_price": "12.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "storno",
+    "note": "Storno objednávky – vyžaduje ručné spracovanie.",
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0034",
+    "created_at": "2026-11-05T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 34",
+      "email": "demo34@example.com",
+      "street": "Demo ulica 34",
+      "city": "Karlovy Vary",
+      "zip": "10034",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 1,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 3,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0035",
+    "created_at": "2026-11-05T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 35",
+      "email": "demo35@example.com",
+      "street": "Demo ulica 35",
+      "city": "Bělá nad Radbuzou",
+      "zip": "10035",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 2,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 2,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 1,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0036",
+    "created_at": "2026-11-05T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 36",
+      "email": "demo36@example.com",
+      "street": "Demo ulica 36",
+      "city": "Brušperk",
+      "zip": "10036",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-001",
+        "ean": "2000000010014",
+        "name": "Demo kancelársky papier A4",
+        "qty": 1,
+        "unit_price": "199.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0037",
+    "created_at": "2026-11-05T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 37",
+      "email": "demo37@example.com",
+      "street": "Demo ulica 37",
+      "city": "Podbořany",
+      "zip": "10037",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 1,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 1,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0038",
+    "created_at": "2026-11-05T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 38",
+      "email": "demo38@example.com",
+      "street": "Demo ulica 38",
+      "city": "Velký Šenov",
+      "zip": "10038",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 3,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 2,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 3,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0039",
+    "created_at": "2026-11-06T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 39",
+      "email": "demo39@example.com",
+      "street": "Demo ulica 39",
+      "city": "Bohušovice nad Ohří",
+      "zip": "10039",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-004",
+        "ean": "2000000010045",
+        "name": "Demo monitor 27\"",
+        "qty": 1,
+        "unit_price": "1290.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0040",
+    "created_at": "2026-11-06T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 40",
+      "email": "demo40@example.com",
+      "street": "Demo ulica 40",
+      "city": "Horní Bříza",
+      "zip": "10040",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 3,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 2,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0041",
+    "created_at": "2026-11-06T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 41",
+      "email": "demo41@example.com",
+      "street": "Demo ulica 41",
+      "city": "Tanvald",
+      "zip": "10041",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-999",
+        "ean": null,
+        "name": "Demo neznámy produkt",
+        "qty": 1,
+        "unit_price": "99.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0042",
+    "created_at": "2026-11-06T11:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 42",
+      "email": "demo42@example.com",
+      "street": "Demo ulica 42",
+      "city": "Letovice",
+      "zip": "10042",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-007",
+        "ean": "2000000010076",
+        "name": "Demo reproduktor",
+        "qty": 1,
+        "unit_price": "249.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0043",
+    "created_at": "2026-11-06T14:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 43",
+      "email": "demo43@example.com",
+      "street": "Demo ulica 43",
+      "city": "Třebechovice pod Orebem",
+      "zip": "10043",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 2,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0044",
+    "created_at": "2026-11-06T17:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 44",
+      "email": "demo44@example.com",
+      "street": "Demo ulica 44",
+      "city": "Horní Benešov",
+      "zip": "10044",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-009",
+        "ean": "2000000010090",
+        "name": "Demo webkamera Full HD",
+        "qty": 2,
+        "unit_price": "1890.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 3,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "blocked",
+    "note": "Doklad patrí do uzavretého účtovného obdobia.",
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0045",
+    "created_at": "2026-11-06T20:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 45",
+      "email": "demo45@example.com",
+      "street": "Demo ulica 45",
+      "city": "Benátky nad Jizerou",
+      "zip": "10045",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-010",
+        "ean": "2000000010106",
+        "name": "Demo kancelárske pero",
+        "qty": 2,
+        "unit_price": "12.50",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0046",
+    "created_at": "2026-11-06T23:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 46",
+      "email": "demo46@example.com",
+      "street": "Demo ulica 46",
+      "city": "Adamov",
+      "zip": "10046",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 1,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0047",
+    "created_at": "2026-11-07T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 47",
+      "email": "demo47@example.com",
+      "street": "Demo ulica 47",
+      "city": "Kladruby",
+      "zip": "10047",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-012",
+        "ean": "2000000010120",
+        "name": "Demo čistič obrazovky",
+        "qty": 1,
+        "unit_price": "149.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-003",
+        "ean": "2000000010038",
+        "name": "Demo bezdrôtová myš",
+        "qty": 3,
+        "unit_price": "89.50",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-006",
+        "ean": "2000000010069",
+        "name": "Demo klávesnica SK",
+        "qty": 2,
+        "unit_price": "599.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0048",
+    "created_at": "2026-11-07T05:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 48",
+      "email": "demo48@example.com",
+      "street": "Demo ulica 48",
+      "city": "Holice",
+      "zip": "10048",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-001",
+        "ean": "2000000010014",
+        "name": "Demo kancelársky papier A4",
+        "qty": 1,
+        "unit_price": "199.90",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "transfer",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0049",
+    "created_at": "2026-11-07T08:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 49",
+      "email": "demo49@example.com",
+      "street": "Demo ulica 49",
+      "city": "Buštěhrad",
+      "zip": "10049",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-002",
+        "ean": "2000000010021",
+        "name": "Demo USB-C kábel 2 m",
+        "qty": 2,
+        "unit_price": "349.00",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-005",
+        "ean": "2000000010052",
+        "name": "Demo zápisník A5",
+        "qty": 2,
+        "unit_price": "45.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  },
+  {
+    "order_id": "DEMO-2026-0007",
+    "created_at": "2026-11-02T02:00:00Z",
+    "currency": "CZK",
+    "customer": {
+      "name": "Demo Zákazník 07",
+      "email": "demo07@example.com",
+      "street": "Demo ulica 7",
+      "city": "Uhlířské Janovice",
+      "zip": "10007",
+      "country": "CZ"
+    },
+    "items": [
+      {
+        "sku": "SKU-008",
+        "ean": "2000000010083",
+        "name": "Demo podložka na stôl",
+        "qty": 3,
+        "unit_price": "79.90",
+        "vat_rate": "23"
+      },
+      {
+        "sku": "SKU-011",
+        "ean": "2000000010113",
+        "name": "Demo stojan na monitor",
+        "qty": 2,
+        "unit_price": "320.00",
+        "vat_rate": "23"
+      }
+    ],
+    "shipping": "99.00",
+    "payment": "card",
+    "status": "open",
+    "note": null,
+    "declared_total": null
+  }
+]

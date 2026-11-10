@@ -1,0 +1,14 @@
+{
+  "source_file": "invoice_09_scan.pdf",
+  "invoice_number": null,
+  "supplier": null,
+  "issue_date": null,
+  "due_date": null,
+  "currency": null,
+  "declared_total": null,
+  "lines": [],
+  "computed_total": null,
+  "status": "manual_review",
+  "reason": "scan_requires_ocr",
+  "duplicate_of": null
+}

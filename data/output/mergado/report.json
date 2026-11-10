@@ -1,0 +1,188 @@
+{
+  "scenario": "mergado",
+  "title": "Mergado / XML feed",
+  "started_at": "2026-11-10T10:00:00Z",
+  "duration_ms": 7000,
+  "input_count": 1000,
+  "processed": 987,
+  "flagged": 13,
+  "silent_errors": 0,
+  "warnings": [
+    {
+      "id": "A-0010",
+      "reason": "category_inferred",
+      "detail": "Kategória odvodená z názvu: Príslušenstvo",
+      "severity": "warning"
+    },
+    {
+      "id": "C-0001",
+      "reason": "zero_stock",
+      "detail": "Produkt zostáva v master feede s nulovým skladom",
+      "severity": "warning"
+    },
+    {
+      "id": "C-0002",
+      "reason": "zero_stock",
+      "detail": "Produkt zostáva v master feede s nulovým skladom",
+      "severity": "warning"
+    },
+    {
+      "id": "C-0003",
+      "reason": "zero_stock",
+      "detail": "Produkt zostáva v master feede s nulovým skladom",
+      "severity": "warning"
+    },
+    {
+      "id": "C-0004",
+      "reason": "zero_stock",
+      "detail": "Produkt zostáva v master feede s nulovým skladom",
+      "severity": "warning"
+    },
+    {
+      "id": "C-0005",
+      "reason": "zero_stock",
+      "detail": "Produkt zostáva v master feede s nulovým skladom",
+      "severity": "warning"
+    }
+  ],
+  "flagged_items": [
+    {
+      "id": "A-0001",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0002",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0003",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0004",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0005",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0006",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0007",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0008",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "A-0009",
+      "reason": "missing_category",
+      "detail": "Produkt nemá kategóriu",
+      "severity": "flagged"
+    },
+    {
+      "id": "B-0100",
+      "reason": "duplicate_ean",
+      "detail": "EAN 2000000030500 už je v A-0050",
+      "severity": "flagged"
+    },
+    {
+      "id": "B-0200",
+      "reason": "unsupported_currency",
+      "detail": "Mena EUR bez kurzového lístka",
+      "severity": "flagged"
+    },
+    {
+      "id": "C-0200",
+      "reason": "unsupported_currency",
+      "detail": "Mena USD bez kurzového lístka",
+      "severity": "flagged"
+    },
+    {
+      "id": "C-0250",
+      "reason": "invalid_price",
+      "detail": "Neplatná cena: 'N/A'",
+      "severity": "flagged"
+    }
+  ],
+  "counts_by_reason": {
+    "duplicate_ean": 1,
+    "invalid_price": 1,
+    "missing_category": 9,
+    "unsupported_currency": 2
+  },
+  "warning_counts_by_reason": {
+    "category_inferred": 1,
+    "zero_stock": 5
+  },
+  "checks": [
+    {
+      "name": "master_xml_well_formed",
+      "passed": true,
+      "detail": "lxml parse"
+    },
+    {
+      "name": "master_count",
+      "passed": true,
+      "detail": "XML=987, CSV=987, expected 987"
+    },
+    {
+      "name": "mapping_complete",
+      "passed": true,
+      "detail": "1000/1000"
+    },
+    {
+      "name": "unique_ean_in_master",
+      "passed": true,
+      "detail": "no duplicate EAN in master"
+    },
+    {
+      "name": "category_rule_reported",
+      "passed": true,
+      "detail": "1 inferred category is a warning, 9 missing categories are flagged"
+    },
+    {
+      "name": "silent_errors_zero",
+      "passed": true,
+      "detail": "every warning/flag is present in report.json"
+    }
+  ],
+  "audit": {
+    "issues_total": 19,
+    "issues_reported": 19,
+    "silent_errors": 0
+  },
+  "outputs": [
+    "mergado/master_feed.xml",
+    "mergado/master_feed.csv",
+    "mergado/mapping.json",
+    "mergado/report.json",
+    "mergado/report.md",
+    "mergado/run.log"
+  ],
+  "feeds": 3,
+  "zero_stock_products": 5,
+  "category_inferred": 1,
+  "master_xml": "mergado/master_feed.xml",
+  "master_csv": "mergado/master_feed.csv"
+}

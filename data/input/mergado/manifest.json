@@ -1,0 +1,21 @@
+{
+  "seed": 20261110,
+  "total": 1000,
+  "feeds": [
+    {
+      "file": "supplier_a.xml",
+      "supplier": "A",
+      "products": 400
+    },
+    {
+      "file": "supplier_b.xml",
+      "supplier": "B",
+      "products": 350
+    },
+    {
+      "file": "supplier_c.csv",
+      "supplier": "C",
+      "products": 250
+    }
+  ]
+}

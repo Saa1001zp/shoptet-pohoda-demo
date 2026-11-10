@@ -1,0 +1,120 @@
+{
+  "scenario": "invoices",
+  "title": "Dodávateľské faktúry → Pohoda",
+  "started_at": "2026-11-10T10:00:00Z",
+  "duration_ms": 9000,
+  "input_count": 10,
+  "processed": 8,
+  "flagged": 2,
+  "silent_errors": 0,
+  "warnings": [
+    {
+      "id": "invoice_05.pdf",
+      "reason": "sku_matched_by_ean",
+      "detail": "Riadok 2: SUP-999 -> SUP-002",
+      "severity": "warning"
+    },
+    {
+      "id": "invoice_06.pdf",
+      "reason": "price_differs_from_catalog",
+      "detail": "Riadok 1: faktúra 134.90, katalóg 129.90, rozdiel 5.00",
+      "severity": "warning"
+    },
+    {
+      "id": "invoice_07.pdf",
+      "reason": "mixed_vat_rates",
+      "detail": "Faktúra obsahuje 0 % aj 23 % DPH",
+      "severity": "warning"
+    }
+  ],
+  "flagged_items": [
+    {
+      "id": "invoice_09_scan.pdf",
+      "reason": "scan_requires_ocr",
+      "detail": "Dokument vyžaduje ručné zadanie",
+      "severity": "flagged"
+    },
+    {
+      "id": "invoice_10.pdf",
+      "reason": "duplicate_invoice",
+      "detail": "Rovnaké číslo ako invoice_03.pdf",
+      "severity": "flagged"
+    }
+  ],
+  "counts_by_reason": {
+    "duplicate_invoice": 1,
+    "scan_requires_ocr": 1
+  },
+  "warning_counts_by_reason": {
+    "mixed_vat_rates": 1,
+    "price_differs_from_catalog": 1,
+    "sku_matched_by_ean": 1
+  },
+  "checks": [
+    {
+      "name": "xml_well_formed",
+      "passed": true,
+      "detail": "8 received invoices + stock receipts"
+    },
+    {
+      "name": "totals_reconcile",
+      "passed": true,
+      "detail": "sum(lines) == invoice total"
+    },
+    {
+      "name": "line_coverage",
+      "passed": true,
+      "detail": "48/48 posted lines"
+    },
+    {
+      "name": "vat_rates_supported",
+      "passed": true,
+      "detail": "0 % and 23 % only"
+    },
+    {
+      "name": "scan_not_guessed",
+      "passed": true,
+      "detail": "image-only scan sent to manual review"
+    },
+    {
+      "name": "duplicate_reported",
+      "passed": true,
+      "detail": "duplicate invoice sent to manual review"
+    },
+    {
+      "name": "silent_errors_zero",
+      "passed": true,
+      "detail": "every warning/flag is present in report.json"
+    }
+  ],
+  "audit": {
+    "issues_total": 5,
+    "issues_reported": 5,
+    "silent_errors": 0
+  },
+  "outputs": [
+    "invoices/pohoda_received_invoices.xml",
+    "invoices/stock_receipts.xml",
+    "invoices/invoices/",
+    "invoices/parsed/",
+    "invoices/parsed.json",
+    "invoices/report.json",
+    "invoices/report.md",
+    "invoices/run.log"
+  ],
+  "documents_total": 10,
+  "documents_posted": 8,
+  "documents_manual_review": 2,
+  "lines_total": 48,
+  "lines_posted": 48,
+  "lines_extracted": 54,
+  "lines_matched": 48,
+  "lines_unmatched": 0,
+  "lines_duplicate": 6,
+  "matching": {
+    "by_sku": 47,
+    "by_ean": 1,
+    "unmatched": 0
+  },
+  "currency": "CZK"
+}

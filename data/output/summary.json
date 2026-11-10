@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-11-10T10:00:00Z",
+  "scenarios": [
+    {
+      "scenario": "shoptet",
+      "input_count": 50,
+      "processed": 46,
+      "flagged": 4,
+      "silent_errors": 0,
+      "report": "data/output/shoptet/report.json"
+    },
+    {
+      "scenario": "invoices",
+      "input_count": 10,
+      "processed": 8,
+      "flagged": 2,
+      "silent_errors": 0,
+      "report": "data/output/invoices/report.json"
+    },
+    {
+      "scenario": "mergado",
+      "input_count": 1000,
+      "processed": 987,
+      "flagged": 13,
+      "silent_errors": 0,
+      "report": "data/output/mergado/report.json"
+    }
+  ]
+}

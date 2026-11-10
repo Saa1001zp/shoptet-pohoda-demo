@@ -1,0 +1,15 @@
+$ python -m demo run --scenario invoices
+[01] Načítaných 10 PDF faktúr a 14 katalógových položiek
+[02] invoice_01.pdf: DF-2026-1001, 6 riadkov, matched 6/6
+[03] invoice_02.pdf: DF-2026-1002, 6 riadkov, matched 6/6
+[04] invoice_03.pdf: DF-2026-1003, 6 riadkov, matched 6/6
+[05] invoice_04.pdf: DF-2026-1004, 6 riadkov, matched 6/6
+[06] invoice_05.pdf: DF-2026-1005, 6 riadkov, matched 6/6
+[07] invoice_06.pdf: DF-2026-1006, 6 riadkov, matched 6/6
+[08] invoice_07.pdf: DF-2026-1007, 6 riadkov, matched 6/6
+[09] invoice_08.pdf: DF-2026-1008, 6 riadkov, matched 6/6
+WARN invoice_09_scan.pdf: scan_requires_ocr
+WARN invoice_10.pdf: duplicate_invoice (DF-2026-1003)
+[12] Parsovanie: 8 faktúr pripravených, 2 na kontrolu
+[13] Export: 8 prijatých faktúr, 8 príjemiek
+[14] Report: processed=8, flagged=2, lines=48/48, silent_errors=0

@@ -1,0 +1,20 @@
+$ python -m demo run --scenario mergado
+[01] supplier_a.xml: 400 produktov
+[02] supplier_b.xml: 350 produktov
+[03] supplier_c.csv: 250 produktov
+WARN A-0001: missing_category
+WARN A-0002: missing_category
+WARN A-0003: missing_category
+WARN A-0004: missing_category
+WARN A-0005: missing_category
+WARN A-0006: missing_category
+WARN A-0007: missing_category
+WARN A-0008: missing_category
+WARN A-0009: missing_category
+WARN B-0100: duplicate_ean
+WARN B-0200: unsupported_currency
+WARN C-0200: unsupported_currency
+WARN C-0250: invalid_price
+[17] Validácia: 987 spracovaných, 13 na kontrolu
+[18] Export: 987 produktov do master_feed.xml a master_feed.csv
+[19] Report: processed=987, flagged=13, silent_errors=0

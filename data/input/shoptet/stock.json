@@ -1,0 +1,79 @@
+{
+  "warehouse": "SKLAD-DEMO",
+  "company": "DemoShop s.r.o.",
+  "currency": "CZK",
+  "items": [
+    {
+      "sku": "SKU-001",
+      "ean": "2000000010014",
+      "stock": 240,
+      "unit": "bal"
+    },
+    {
+      "sku": "SKU-002",
+      "ean": "2000000010021",
+      "stock": 180,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-003",
+      "ean": "2000000010038",
+      "stock": 320,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-004",
+      "ean": "2000000010045",
+      "stock": 75,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-005",
+      "ean": "2000000010052",
+      "stock": 500,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-006",
+      "ean": "2000000010069",
+      "stock": 120,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-007",
+      "ean": "2000000010076",
+      "stock": 95,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-008",
+      "ean": "2000000010083",
+      "stock": 210,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-009",
+      "ean": "2000000010090",
+      "stock": 60,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-010",
+      "ean": "2000000010106",
+      "stock": 900,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-011",
+      "ean": "2000000010113",
+      "stock": 140,
+      "unit": "ks"
+    },
+    {
+      "sku": "SKU-012",
+      "ean": "2000000010120",
+      "stock": 260,
+      "unit": "ks"
+    }
+  ]
+}

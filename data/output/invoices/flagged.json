@@ -1,0 +1,10 @@
+[
+  {
+    "id": "invoice_09_scan.pdf",
+    "reason": "scan_requires_ocr"
+  },
+  {
+    "id": "invoice_10.pdf",
+    "reason": "duplicate_invoice"
+  }
+]

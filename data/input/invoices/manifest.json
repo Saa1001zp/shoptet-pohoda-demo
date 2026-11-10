@@ -1,0 +1,112 @@
+[
+  {
+    "file": "invoice_01.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1001",
+    "supplier": "Demo Dodávateľ Alfa s.r.o.",
+    "issue_date": "2026-10-22",
+    "due_date": "2026-11-05",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "10083.29"
+  },
+  {
+    "file": "invoice_02.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1002",
+    "supplier": "Demo Dodávateľ Beta s.r.o.",
+    "issue_date": "2026-10-24",
+    "due_date": "2026-11-07",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "8202.50"
+  },
+  {
+    "file": "invoice_03.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1003",
+    "supplier": "Demo Dodávateľ Gama s.r.o.",
+    "issue_date": "2026-10-26",
+    "due_date": "2026-11-09",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "11470.98"
+  },
+  {
+    "file": "invoice_04.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1004",
+    "supplier": "Demo Dodávateľ Alfa s.r.o.",
+    "issue_date": "2026-10-28",
+    "due_date": "2026-11-11",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "16044.98"
+  },
+  {
+    "file": "invoice_05.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1005",
+    "supplier": "Demo Dodávateľ Beta s.r.o.",
+    "issue_date": "2026-10-30",
+    "due_date": "2026-11-13",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "23101.74"
+  },
+  {
+    "file": "invoice_06.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1006",
+    "supplier": "Demo Dodávateľ Gama s.r.o.",
+    "issue_date": "2026-11-01",
+    "due_date": "2026-11-15",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "9390.93"
+  },
+  {
+    "file": "invoice_07.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1007",
+    "supplier": "Demo Dodávateľ Alfa s.r.o.",
+    "issue_date": "2026-11-03",
+    "due_date": "2026-11-17",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "2984.23"
+  },
+  {
+    "file": "invoice_08.pdf",
+    "kind": "clean",
+    "invoice_number": "DF-2026-1008",
+    "supplier": "Demo Dodávateľ Beta s.r.o.",
+    "issue_date": "2026-11-05",
+    "due_date": "2026-11-19",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "14918.67"
+  },
+  {
+    "file": "invoice_09_scan.pdf",
+    "kind": "scan",
+    "invoice_number": "DF-2026-1009",
+    "supplier": "Demo Dodávateľ Gama s.r.o.",
+    "issue_date": "2026-11-07",
+    "due_date": "2026-11-21",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "9384.78"
+  },
+  {
+    "file": "invoice_10.pdf",
+    "kind": "duplicate",
+    "invoice_number": "DF-2026-1003",
+    "supplier": "Demo Dodávateľ Gama s.r.o.",
+    "issue_date": "2026-10-26",
+    "due_date": "2026-11-09",
+    "currency": "CZK",
+    "lines": 6,
+    "total": "11470.98"
+  }
+]

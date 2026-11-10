@@ -1,0 +1,1647 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dat:dataPack xmlns:dat="http://www.stormware.cz/schema/version_2/data.xsd" xmlns:inv="http://www.stormware.cz/schema/version_2/invoice.xsd" xmlns:typ="http://www.stormware.cz/schema/version_2/type.xsd" xmlns:stk="http://www.stormware.cz/schema/version_2/stock.xsd" version="2.0" id="SHOPTET-STOCK-20261110" application="shoptet-pohoda-demo" note="Syntetické dáta – DEMO. Nie je reálne pripojenie k Pohode.">
+  <dat:dataPackItem id="VYD-2026-0001" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0001</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0001 (DEMO-2026-0001)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0002" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0002</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0002 (DEMO-2026-0002)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0003" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0003</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0003 (DEMO-2026-0003)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-004</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0004" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0004</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0004 (DEMO-2026-0004)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0005" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0005</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0005 (DEMO-2026-0005)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0006" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0006</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-01</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0006 (DEMO-2026-0006)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-007</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0007" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0007</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0007 (DEMO-2026-0007)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0008" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0008</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0008 (DEMO-2026-0008)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0009" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0009</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0009 (DEMO-2026-0009)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-010</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0010" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0010</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0010 (DEMO-2026-0010)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0011" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0011</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0011 (DEMO-2026-0011)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0012" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0012</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0012 (DEMO-2026-0012)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-001</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0013" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0013</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0013 (DEMO-2026-0013)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0014" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0014</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-02</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0014 (DEMO-2026-0014)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0015" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0015</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0015 (DEMO-2026-0015)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-004</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0016" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0016</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0016 (DEMO-2026-0016)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0017" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0017</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0017 (DEMO-2026-0017)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0018" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0018</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0018 (DEMO-2026-0018)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-007</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0019" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0019</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0019 (DEMO-2026-0019)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0020" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0020</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0020 (DEMO-2026-0020)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0021" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0021</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0021 (DEMO-2026-0021)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-010</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0022" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0022</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-03</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0022 (DEMO-2026-0022)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0023" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0023</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0023 (DEMO-2026-0023)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0024" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0024</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0024 (DEMO-2026-0024)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-001</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0025" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0025</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0025 (DEMO-2026-0025)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0026" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0026</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0026 (DEMO-2026-0026)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0027" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0027</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0027 (DEMO-2026-0027)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-004</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0028" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0028</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0028 (DEMO-2026-0028)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0029" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0029</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0029 (DEMO-2026-0029)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0030" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0030</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-04</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0030 (DEMO-2026-0030)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-007</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0031" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0031</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0031 (DEMO-2026-0031)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-001</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0032" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0032</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0032 (DEMO-2026-0032)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0034" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0034</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0034 (DEMO-2026-0034)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0035" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0035</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0035 (DEMO-2026-0035)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0036" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0036</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0036 (DEMO-2026-0036)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-001</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0037" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0037</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0037 (DEMO-2026-0037)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0038" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0038</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-05</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0038 (DEMO-2026-0038)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-009</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0039" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0039</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0039 (DEMO-2026-0039)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-004</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0040" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0040</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0040 (DEMO-2026-0040)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0042" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0042</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0042 (DEMO-2026-0042)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-007</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0043" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0043</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0043 (DEMO-2026-0043)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-008</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0045" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0045</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0045 (DEMO-2026-0045)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-010</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0046" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0046</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-06</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0046 (DEMO-2026-0046)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-011</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0047" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0047</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-07</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0047 (DEMO-2026-0047)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-012</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>3</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-003</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-006</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0048" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0048</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-07</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0048 (DEMO-2026-0048)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-001</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+  <dat:dataPackItem id="VYD-2026-0049" version="2.0">
+    <stk:stock version="2.0">
+      <stk:stockHeader>
+        <stk:stockType>outgoing</stk:stockType>
+        <stk:number>
+          <typ:numberRequested>VYD-2026-0049</typ:numberRequested>
+        </stk:number>
+        <stk:date>2026-11-07</stk:date>
+        <stk:text>Výdajka k faktúre 2026-0049 (DEMO-2026-0049)</stk:text>
+        <stk:store>
+          <typ:ids>SKLAD-DEMO</typ:ids>
+        </stk:store>
+        <stk:note>DEMO · syntetické dáta</stk:note>
+      </stk:stockHeader>
+      <stk:stockDetail>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-002</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>2</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SKU-005</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+        <stk:stockItem>
+          <stk:quantity>1</stk:quantity>
+          <stk:stockItem>
+            <typ:ids>SHIPPING</typ:ids>
+          </stk:stockItem>
+        </stk:stockItem>
+      </stk:stockDetail>
+    </stk:stock>
+  </dat:dataPackItem>
+</dat:dataPack>

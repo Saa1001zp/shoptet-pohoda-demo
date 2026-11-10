@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dat:dataPack xmlns:dat="http://www.stormware.cz/schema/version_2/data.xsd" xmlns:inv="http://www.stormware.cz/schema/version_2/invoice.xsd" xmlns:typ="http://www.stormware.cz/schema/version_2/type.xsd" xmlns:stk="http://www.stormware.cz/schema/version_2/stock.xsd" version="2.0" id="SHOPTET-DEMO-2026-0001" application="shoptet-pohoda-demo" note="Syntetické dáta – DEMO. Nie je reálne pripojenie k Pohode.">
+  <dat:dataPackItem id="2026-0001" version="2.0">
+    <inv:invoice version="2.0">
+      <inv:invoiceHeader>
+        <inv:invoiceType>issuedInvoice</inv:invoiceType>
+        <inv:number>
+          <typ:numberRequested>2026-0001</typ:numberRequested>
+        </inv:number>
+        <inv:symVar>20260001</inv:symVar>
+        <inv:date>2026-11-01</inv:date>
+        <inv:dateDue>2026-11-15</inv:dateDue>
+        <inv:text>Demo objednávka DEMO-2026-0001</inv:text>
+        <inv:partnerIdentity>
+          <typ:address>
+            <typ:name>Demo Zákazník 01</typ:name>
+            <typ:street>Demo ulica 1</typ:street>
+            <typ:city>Rokytnice nad Jizerou</typ:city>
+            <typ:zip>10001</typ:zip>
+            <typ:country>
+              <typ:ids>CZ</typ:ids>
+            </typ:country>
+            <typ:email>demo01@example.com</typ:email>
+          </typ:address>
+        </inv:partnerIdentity>
+        <inv:paymentType>
+          <typ:ids>card</typ:ids>
+        </inv:paymentType>
+        <inv:note>DEMO · syntetické dáta</inv:note>
+      </inv:invoiceHeader>
+      <inv:invoiceDetail>
+        <inv:invoiceItem>
+          <inv:quantity>2</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo USB-C kábel 2 m</inv:text>
+          <inv:code>SKU-002</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>349.00</typ:unitPrice>
+            <typ:price>698.00</typ:price>
+            <typ:priceVAT>858.54</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SKU-002</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>3</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo zápisník A5</inv:text>
+          <inv:code>SKU-005</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>45.00</typ:unitPrice>
+            <typ:price>135.00</typ:price>
+            <typ:priceVAT>166.05</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SKU-005</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>1</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Doprava</inv:text>
+          <inv:code>SHIPPING</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>99.00</typ:unitPrice>
+            <typ:price>99.00</typ:price>
+            <typ:priceVAT>121.77</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SHIPPING</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+      </inv:invoiceDetail>
+      <inv:invoiceSummary>
+        <inv:homeCurrency>
+          <typ:priceNone>0.00</typ:priceNone>
+          <typ:priceHigh>932.00</typ:priceHigh>
+          <typ:priceHighVAT>1146.36</typ:priceHighVAT>
+          <typ:round>
+            <typ:priceRound>0.00</typ:priceRound>
+          </typ:round>
+        </inv:homeCurrency>
+      </inv:invoiceSummary>
+    </inv:invoice>
+  </dat:dataPackItem>
+</dat:dataPack>

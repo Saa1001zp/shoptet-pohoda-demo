@@ -1,0 +1,18 @@
+[
+  {
+    "id": "DEMO-2026-0033",
+    "reason": "storno_requires_manual"
+  },
+  {
+    "id": "DEMO-2026-0041",
+    "reason": "missing_ean_unresolved"
+  },
+  {
+    "id": "DEMO-2026-0044",
+    "reason": "closed_period"
+  },
+  {
+    "id": "DEMO-2026-0007",
+    "reason": "duplicate_order"
+  }
+]

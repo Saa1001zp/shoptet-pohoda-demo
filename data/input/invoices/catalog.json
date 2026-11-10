@@ -1,0 +1,128 @@
+[
+  {
+    "sku": "SUP-001",
+    "ean": "2000000020013",
+    "name": "Demo kancelársky papier A4",
+    "unit": "bal",
+    "price": "129.90",
+    "vat_rate": "23",
+    "stock": 300
+  },
+  {
+    "sku": "SUP-002",
+    "ean": "2000000020020",
+    "name": "Demo USB-C kábel 2 m",
+    "unit": "ks",
+    "price": "189.00",
+    "vat_rate": "23",
+    "stock": 200
+  },
+  {
+    "sku": "SUP-003",
+    "ean": "2000000020037",
+    "name": "Demo bezdrôtová myš",
+    "unit": "ks",
+    "price": "249.00",
+    "vat_rate": "23",
+    "stock": 150
+  },
+  {
+    "sku": "SUP-004",
+    "ean": "2000000020044",
+    "name": "Demo monitor 27\"",
+    "unit": "ks",
+    "price": "3990.00",
+    "vat_rate": "23",
+    "stock": 40
+  },
+  {
+    "sku": "SUP-005",
+    "ean": "2000000020051",
+    "name": "Demo zápisník A5",
+    "unit": "ks",
+    "price": "69.00",
+    "vat_rate": "23",
+    "stock": 500
+  },
+  {
+    "sku": "SUP-006",
+    "ean": "2000000020068",
+    "name": "Demo klávesnica SK",
+    "unit": "ks",
+    "price": "749.00",
+    "vat_rate": "23",
+    "stock": 90
+  },
+  {
+    "sku": "SUP-007",
+    "ean": "2000000020075",
+    "name": "Demo reproduktor",
+    "unit": "ks",
+    "price": "459.00",
+    "vat_rate": "23",
+    "stock": 80
+  },
+  {
+    "sku": "SUP-008",
+    "ean": "2000000020082",
+    "name": "Demo podložka na stôl",
+    "unit": "ks",
+    "price": "119.00",
+    "vat_rate": "23",
+    "stock": 220
+  },
+  {
+    "sku": "SUP-009",
+    "ean": "2000000020099",
+    "name": "Demo webkamera Full HD",
+    "unit": "ks",
+    "price": "2290.00",
+    "vat_rate": "23",
+    "stock": 55
+  },
+  {
+    "sku": "SUP-010",
+    "ean": "2000000020105",
+    "name": "Demo stojan na monitor",
+    "unit": "ks",
+    "price": "690.00",
+    "vat_rate": "23",
+    "stock": 110
+  },
+  {
+    "sku": "SUP-011",
+    "ean": "2000000020112",
+    "name": "Demo odborná kniha",
+    "unit": "ks",
+    "price": "399.00",
+    "vat_rate": "0",
+    "stock": 70
+  },
+  {
+    "sku": "SUP-012",
+    "ean": "2000000020129",
+    "name": "Demo školiaci manuál",
+    "unit": "ks",
+    "price": "149.00",
+    "vat_rate": "0",
+    "stock": 130
+  },
+  {
+    "sku": "SUP-013",
+    "ean": "2000000020136",
+    "name": "Demo čistič obrazovky",
+    "unit": "ks",
+    "price": "89.00",
+    "vat_rate": "0",
+    "stock": 160
+  },
+  {
+    "sku": "SUP-014",
+    "ean": "2000000020143",
+    "name": "Demo antistatická podložka",
+    "unit": "ks",
+    "price": "259.00",
+    "vat_rate": "0",
+    "stock": 65
+  }
+]

@@ -1,0 +1,12 @@
+$ python -m demo run --scenario shoptet
+[01] Načítaných 50 objednávok a 12 katalógových položiek
+     DEMO-2026-0012: missing_ean_enriched (SKU SKU-001: EAN 2000000010014 doplnené z katalógu)
+     DEMO-2026-0027: missing_ean_enriched (SKU SKU-004: EAN 2000000010045 doplnené z katalógu)
+     DEMO-2026-0031: vat_rounding (Rozdiel 0.01 CZK vyriešený rounding line)
+WARN DEMO-2026-0033: storno_requires_manual
+WARN DEMO-2026-0041: missing_ean_unresolved
+WARN DEMO-2026-0044: closed_period
+WARN DEMO-2026-0007: duplicate_order
+[09] Validácia: 46 pripravených, 4 na kontrolu
+[10] Export: 46 XML faktúr, 46 výdajok
+[11] Report: processed=46, flagged=4, silent_errors=0

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "A-0001",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0002",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0003",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0004",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0005",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0006",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0007",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0008",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "A-0009",
+    "reason": "missing_category",
+    "detail": "Produkt nemá kategóriu"
+  },
+  {
+    "id": "B-0100",
+    "reason": "duplicate_ean",
+    "detail": "EAN 2000000030500 už je v A-0050"
+  },
+  {
+    "id": "B-0200",
+    "reason": "unsupported_currency",
+    "detail": "Mena EUR bez kurzového lístka"
+  },
+  {
+    "id": "C-0200",
+    "reason": "unsupported_currency",
+    "detail": "Mena USD bez kurzového lístka"
+  },
+  {
+    "id": "C-0250",
+    "reason": "invalid_price",
+    "detail": "Neplatná cena: 'N/A'"
+  }
+]

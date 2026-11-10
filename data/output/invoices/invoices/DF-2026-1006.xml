@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dat:dataPack xmlns:dat="http://www.stormware.cz/schema/version_2/data.xsd" xmlns:inv="http://www.stormware.cz/schema/version_2/invoice.xsd" xmlns:typ="http://www.stormware.cz/schema/version_2/type.xsd" xmlns:stk="http://www.stormware.cz/schema/version_2/stock.xsd" version="2.0" id="INVOICES-DEMO-DF-2026-1006" application="shoptet-pohoda-demo" note="Syntetické dáta – DEMO. Nie je reálne pripojenie k Pohode.">
+  <dat:dataPackItem id="DF-2026-1006" version="2.0">
+    <inv:invoice version="2.0">
+      <inv:invoiceHeader>
+        <inv:invoiceType>receivedInvoice</inv:invoiceType>
+        <inv:number>
+          <typ:numberRequested>DF-2026-1006</typ:numberRequested>
+        </inv:number>
+        <inv:symVar>20261006</inv:symVar>
+        <inv:date>2026-11-01</inv:date>
+        <inv:dateDue>2026-11-15</inv:dateDue>
+        <inv:text>Prijatá faktúra DF-2026-1006 – syntetické demo</inv:text>
+        <inv:partnerIdentity>
+          <typ:address>
+            <typ:name>Demo Dodávateľ Gama s.r.o.</typ:name>
+            <typ:street>Demo 1</typ:street>
+            <typ:city>Praha</typ:city>
+            <typ:zip>11000</typ:zip>
+            <typ:country>
+              <typ:ids>CZ</typ:ids>
+            </typ:country>
+            <typ:email>demo@example.com</typ:email>
+          </typ:address>
+        </inv:partnerIdentity>
+        <inv:paymentType>
+          <typ:ids>transfer</typ:ids>
+        </inv:paymentType>
+        <inv:note>DEMO · syntetické dáta</inv:note>
+      </inv:invoiceHeader>
+      <inv:invoiceDetail>
+        <inv:invoiceItem>
+          <inv:quantity>1</inv:quantity>
+          <inv:unit>bal</inv:unit>
+          <inv:text>Demo kancelársky papier A4</inv:text>
+          <inv:code>SUP-001</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>134.90</typ:unitPrice>
+            <typ:price>134.90</typ:price>
+            <typ:priceVAT>165.93</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-001</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>2</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo USB-C kábel 2 m</inv:text>
+          <inv:code>SUP-002</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>189.00</typ:unitPrice>
+            <typ:price>378.00</typ:price>
+            <typ:priceVAT>464.94</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-002</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>3</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo bezdrôtová myš</inv:text>
+          <inv:code>SUP-003</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>249.00</typ:unitPrice>
+            <typ:price>747.00</typ:price>
+            <typ:priceVAT>918.81</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-003</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>1</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo monitor 27"</inv:text>
+          <inv:code>SUP-004</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>3990.00</typ:unitPrice>
+            <typ:price>3990.00</typ:price>
+            <typ:priceVAT>4907.70</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-004</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>2</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo zápisník A5</inv:text>
+          <inv:code>SUP-005</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>69.00</typ:unitPrice>
+            <typ:price>138.00</typ:price>
+            <typ:priceVAT>169.74</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-005</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+        <inv:invoiceItem>
+          <inv:quantity>3</inv:quantity>
+          <inv:unit>ks</inv:unit>
+          <inv:text>Demo klávesnica SK</inv:text>
+          <inv:code>SUP-006</inv:code>
+          <inv:homeCurrency>
+            <typ:unitPrice>749.00</typ:unitPrice>
+            <typ:price>2247.00</typ:price>
+            <typ:priceVAT>2763.81</typ:priceVAT>
+            <typ:rateVAT>high</typ:rateVAT>
+            <typ:percentVAT>23</typ:percentVAT>
+          </inv:homeCurrency>
+          <inv:stockItem>
+            <typ:stockItem>
+              <typ:ids>SUP-006</typ:ids>
+            </typ:stockItem>
+          </inv:stockItem>
+        </inv:invoiceItem>
+      </inv:invoiceDetail>
+      <inv:invoiceSummary>
+        <inv:homeCurrency>
+          <typ:priceNone>0.00</typ:priceNone>
+          <typ:priceHigh>7634.90</typ:priceHigh>
+          <typ:priceHighVAT>9390.93</typ:priceHighVAT>
+          <typ:round>
+            <typ:priceRound>0.00</typ:priceRound>
+          </typ:round>
+        </inv:homeCurrency>
+      </inv:invoiceSummary>
+    </inv:invoice>
+  </dat:dataPackItem>
+</dat:dataPack>

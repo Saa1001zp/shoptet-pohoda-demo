@@ -1,0 +1,117 @@
+{
+  "scenario": "shoptet",
+  "title": "Shoptet → Pohoda",
+  "started_at": "2026-11-10T10:00:00Z",
+  "duration_ms": 12000,
+  "input_count": 50,
+  "processed": 46,
+  "flagged": 4,
+  "silent_errors": 0,
+  "warnings": [
+    {
+      "id": "DEMO-2026-0012",
+      "reason": "missing_ean_enriched",
+      "detail": "SKU SKU-001: EAN 2000000010014 doplnené z katalógu",
+      "severity": "warning"
+    },
+    {
+      "id": "DEMO-2026-0027",
+      "reason": "missing_ean_enriched",
+      "detail": "SKU SKU-004: EAN 2000000010045 doplnené z katalógu",
+      "severity": "warning"
+    },
+    {
+      "id": "DEMO-2026-0031",
+      "reason": "vat_rounding",
+      "detail": "Rozdiel 0.01 CZK vyriešený rounding line",
+      "severity": "warning"
+    }
+  ],
+  "flagged_items": [
+    {
+      "id": "DEMO-2026-0033",
+      "reason": "storno_requires_manual",
+      "detail": "Storno objednávky – vyžaduje ručné spracovanie.",
+      "severity": "flagged"
+    },
+    {
+      "id": "DEMO-2026-0041",
+      "reason": "missing_ean_unresolved",
+      "detail": "SKU SKU-999 nie je v katalógu",
+      "severity": "flagged"
+    },
+    {
+      "id": "DEMO-2026-0044",
+      "reason": "closed_period",
+      "detail": "Doklad patrí do uzavretého účtovného obdobia.",
+      "severity": "flagged"
+    },
+    {
+      "id": "DEMO-2026-0007",
+      "reason": "duplicate_order",
+      "detail": "Druhý výskyt rovnakého order_id",
+      "severity": "flagged"
+    }
+  ],
+  "counts_by_reason": {
+    "closed_period": 1,
+    "duplicate_order": 1,
+    "missing_ean_unresolved": 1,
+    "storno_requires_manual": 1
+  },
+  "warning_counts_by_reason": {
+    "missing_ean_enriched": 2,
+    "vat_rounding": 1
+  },
+  "checks": [
+    {
+      "name": "xml_well_formed",
+      "passed": true,
+      "detail": "46 invoice files + pack + stock pack"
+    },
+    {
+      "name": "totals_reconcile",
+      "passed": true,
+      "detail": "sum(lines) == invoice total for every invoice"
+    },
+    {
+      "name": "decimal_money",
+      "passed": true,
+      "detail": "Decimal + ROUND_HALF_UP, no float"
+    },
+    {
+      "name": "catalog_match",
+      "passed": true,
+      "detail": "every processed line matched by SKU/EAN"
+    },
+    {
+      "name": "duplicate_orders_reported",
+      "passed": true,
+      "detail": "duplicate order sent to manual review"
+    },
+    {
+      "name": "silent_errors_zero",
+      "passed": true,
+      "detail": "every warning/flag is present in report.json"
+    }
+  ],
+  "audit": {
+    "issues_total": 7,
+    "issues_reported": 7,
+    "silent_errors": 0
+  },
+  "outputs": [
+    "shoptet/pohoda_invoices.xml",
+    "shoptet/stock_issues.xml",
+    "shoptet/invoices/",
+    "shoptet/report.json",
+    "shoptet/report.md",
+    "shoptet/run.log"
+  ],
+  "invoices_total": 46,
+  "stock_movements": 46,
+  "rounding_lines": 1,
+  "catalog_items": 12,
+  "warehouse": "SKLAD-DEMO",
+  "currency": "CZK"
+}
